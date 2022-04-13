@@ -13,6 +13,7 @@ namespace Entities.Models
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Position { get; set; }
+        public int Salary { get; set; }
         public string RestaurantName { get; set; }
     }
 }
