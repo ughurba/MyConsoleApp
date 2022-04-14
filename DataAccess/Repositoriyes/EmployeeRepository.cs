@@ -23,17 +23,12 @@ namespace DataAccess.Repositoriyes
             }
         }
 
-        public bool Delete(Employee entity)
+        public bool Delete(Employee Emp)
         {
-            if(entity == null)
-            {
-                return false;
-            }
-            else
-            {
-                DataContext.employees.Remove(entity);
-                return true;
-            }
+          
+            
+            return  DataContext.employees.Remove(Emp);
+            
         }
 
         public List<Employee> GetAll(Predicate<Employee> filter = null)
