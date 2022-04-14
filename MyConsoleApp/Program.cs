@@ -44,13 +44,13 @@ namespace MyConsoleApp
                 Surname = "Mamedov",
                 Salary = 100,
                 Position = "officant",
-                Experience = 1,
+                Experience = 2,
                 RestaurantName = "MoskvaXaous"
 
             };
             Employee employee1 = new Employee()
             {
-                Name = "orxan",
+                Name = "Orxan",
                 Surname = "Mamedov",
                 Salary = 100,
                 Position = "officant",
@@ -104,43 +104,51 @@ namespace MyConsoleApp
             $"{employee2.RestaurantName}");
 
 
-            Console.WriteLine();
-            Console.WriteLine();
-            //update vezifesine gore iwdedi
-            serviceEmployee.UpdatePosition("barmen", 2);
-            PrintAndEnum.Print(ConsoleColor.Green, $"{employee1.Id}\n{employee1.Name}" +
-            $"\n{employee1.Surname}" +
-            $"\n{employee1.Salary}\n" +
-            $"{employee1.Position}\n" +
-            $"{employee1.Experience}\n" +
-            $"{employee1.RestaurantName}");
+            //   Console.WriteLine();
+            //   Console.WriteLine();
+            //   //update vezifesine gore iwdedi
+            //   serviceEmployee.UpdatePosition("barmen", 2);
+            //   PrintAndEnum.Print(ConsoleColor.Green, $"{employee1.Id}\n{employee1.Name}" +
+            //   $"\n{employee1.Surname}" +
+            //   $"\n{employee1.Salary}\n" +
+            //   $"{employee1.Position}\n" +
+            //   $"{employee1.Experience}\n" +
+            //   $"{employee1.RestaurantName}");
 
-            serviceEmployee.UpdateSalary(200, 2);
-            Console.WriteLine();
-            Console.WriteLine();
-            PrintAndEnum.Print(ConsoleColor.Green, $"{employee1.Id}\n{employee1.Name}" +
-          $"\n{employee1.Surname}" +
-          $"\n{employee1.Salary}\n" +
-          $"{employee1.Position}\n" +
-          $"{employee1.Experience}\n" +
-          $"{employee1.RestaurantName}");
+            //   serviceEmployee.UpdateSalary(200, 2);
+            //   Console.WriteLine();
+            //   Console.WriteLine();
+            //   PrintAndEnum.Print(ConsoleColor.Green, $"{employee1.Id}\n{employee1.Name}" +
+            // $"\n{employee1.Surname}" +
+            // $"\n{employee1.Salary}\n" +
+            // $"{employee1.Position}\n" +
+            // $"{employee1.Experience}\n" +
+            // $"{employee1.RestaurantName}");
 
-            Console.WriteLine("resotaran gore caqirdiqlarim");
-            foreach (var item in serviceEmployee.GetAllEmployeeByRestName("MoskvaXaous"))
-            {
-                Console.WriteLine(item.Name);
-            }
 
-            Console.WriteLine("iw yerin deyiwdim");
 
-            serviceEmployee.UpdatePlaceOfWork(2, "Uyut");
-            PrintAndEnum.Print(ConsoleColor.Green, $"{employee1.Id}\n{employee1.Name}" +
-         $"\n{employee1.Surname}" +
-         $"\n{employee1.Salary}\n" +
-         $"{employee1.Position}\n" +
-         $"{employee1.Experience}\n" +
-         $"{employee1.RestaurantName}");
+            //   Console.WriteLine("iw yerin deyiwdim");
 
+            //   serviceEmployee.UpdatePlaceOfWork(2, "Uyut");
+            //   PrintAndEnum.Print(ConsoleColor.Green, $"{employee1.Id}\n{employee1.Name}" +
+            //$"\n{employee1.Surname}" +
+            //$"\n{employee1.Salary}\n" +
+            //$"{employee1.Position}\n" +
+            //$"{employee1.Experience}\n" +
+            //$"{employee1.RestaurantName}");
+            //   Console.WriteLine();
+            //   Console.WriteLine();
+
+
+
+            //Console.WriteLine("resotaran gore caqirdiqlarim");
+            //foreach (var item in serviceEmployee.GetAllEmployeeByRestName("MoskvaXaous"))
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
+
+            //Console.WriteLine(serviceEmployee.GetEmployee(2).Name.ToLower());
+            serviceEmployee.UpdatePlaceOfWork(10, "hello");
 
 
 

@@ -1,7 +1,9 @@
 ﻿using Business.Interfaces;
 using DataAccess.Repositoriyes;
 using Entities.Models;
+using System;
 using System.Collections.Generic;
+using Utilities.Helper;
 
 namespace Business.Service
 {
@@ -11,19 +13,37 @@ namespace Business.Service
         RestaurantRepository _restaurantRepository = new RestaurantRepository();
         public Restaurant Creat(Restaurant restaurant)
         {
-            Count++;
-            restaurant.Id = Count;
-            _restaurantRepository.Create(restaurant);
-        
-            return restaurant;
+            if (restaurant.Name.Length > 4)
+            {
+                Count++;
+                restaurant.Id = Count;
+                _restaurantRepository.Create(restaurant);
+
+                return restaurant;
+            }
+            else
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, "Restoran name 4 herifden cox olmalidir");
+                return null;
+            }
+
 
         }
 
         public Restaurant Delete(int id)
         {
             Restaurant restaurant = _restaurantRepository.GetOne(r => r.Id == id);
-            _restaurantRepository.Delete(restaurant);
-            return restaurant;
+            if (restaurant == null)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li restoran yoxdur");
+                return null;
+            }
+            else
+            {
+                _restaurantRepository.Delete(restaurant);
+                return restaurant;
+            }
+
         }
 
         public List<Restaurant> GetAll()
@@ -33,26 +53,62 @@ namespace Business.Service
 
         public Restaurant GetRestaurant(int id)
         {
-            return _restaurantRepository.GetOne(r => r.Id == id);
+            Restaurant restaurant = _restaurantRepository.GetOne(r => r.Id == id);
+            if (restaurant == null)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li restoran yoxdur");
+                return null;
+            }
+            else
+            {
+                return restaurant;
+            }
         }
 
         public List<Restaurant> GetRestaurantByName(string name)
         {
-            return _restaurantRepository.GetAll(r => r.Name == name);
+            List<Restaurant> restaurants = _restaurantRepository.GetAll(r => r.Name == name);
+            if (restaurants.Count == 0)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, "Bele adli restoran yoxdur");
+                return null;
+            }
+            else
+            {
+                return restaurants;
+            }
         }
 
         public Restaurant UpdateAdress(int id, string adress = null)
         {
             Restaurant restAdress = _restaurantRepository.GetOne(r => r.Id == id);
-            restAdress.Adress = adress;
-            return restAdress;
+
+            if (restAdress == null)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li restoran tapilmadi");
+                return null;
+            }
+            else
+            {
+                restAdress.Adress = adress;
+                return restAdress;
+            }
         }
 
         public Restaurant UpdateName(int id, string name = null)
         {
             Restaurant restName = _restaurantRepository.GetOne(r => r.Id == id);
-            restName.Name = name;
-            return restName;
+
+            if (restName == null)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li restoran tapilmadi");
+                return null;
+            }
+            else
+            {
+                restName.Name = name;
+                return restName;
+            }
         }
     }
 }

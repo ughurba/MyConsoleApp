@@ -15,3 +15,5 @@ C:\Users\Clean__Laptop\Desktop\MyConsoleApp\Business\obj\Debug\net5.0\Business.d
 C:\Users\Clean__Laptop\Desktop\MyConsoleApp\Business\obj\Debug\net5.0\refint\Business.dll
 C:\Users\Clean__Laptop\Desktop\MyConsoleApp\Business\obj\Debug\net5.0\Business.pdb
 C:\Users\Clean__Laptop\Desktop\MyConsoleApp\Business\obj\Debug\net5.0\ref\Business.dll
+C:\Users\Clean__Laptop\Desktop\MyConsoleApp\Business\bin\Debug\net5.0\Utilities.dll
+C:\Users\Clean__Laptop\Desktop\MyConsoleApp\Business\bin\Debug\net5.0\Utilities.pdb
