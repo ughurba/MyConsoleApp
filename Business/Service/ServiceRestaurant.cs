@@ -11,9 +11,10 @@ namespace Business.Service
         RestaurantRepository _restaurantRepository = new RestaurantRepository();
         public Restaurant Creat(Restaurant restaurant)
         {
-            _restaurantRepository.Create(restaurant);
             Count++;
             restaurant.Id = Count;
+            _restaurantRepository.Create(restaurant);
+        
             return restaurant;
 
         }

@@ -9,9 +9,9 @@ namespace DataAccess
 {
     public class DataContext
     {
-        public static List<Restaurant> restaurants;
-        public static List<Employee> employees;
-        public DataContext()
+        public static List<Restaurant> restaurants { get; set; }
+        public static List<Employee> employees { get; set; }
+       static DataContext()
         {
             restaurants = new List<Restaurant>();
             employees = new List<Employee>();

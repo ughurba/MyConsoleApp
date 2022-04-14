@@ -18,14 +18,15 @@ namespace Business.Service
         {
             if (employee.Experience >= 2)
             {
-                _employeeRepository.Create(employee);
                 Count++;
                 employee.Id = Count;
+                _employeeRepository.Create(employee);
+            ;
                 return employee;
             }
             else
             {
-                Console.WriteLine("Iw Tecrubesi 2 ilden yuxari olmalidi");
+                Console.WriteLine();
                 return null;
             }
        
