@@ -9,6 +9,9 @@ namespace Entities.Models
 {
     public class Table:IEntity
     {
+        public bool Reservition { get; set; } = true;
+        public string RestaurantNameTable { get; set; }
+        public int  MoneyTabel { get; set; }
         public string TableNo { get; set; }
         public int Id { get ; set; }
     }

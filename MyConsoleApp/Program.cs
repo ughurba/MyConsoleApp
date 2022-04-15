@@ -7,9 +7,11 @@ namespace MyConsoleApp
 {
     internal class Program
     {
-   
+
         static void Main(string[] args)
         {
+            ServiceClient serviceClient = new ServiceClient();
+            ServiceTable serviceTable = new ServiceTable();
             ServiceEmployee serviceEmployee = new ServiceEmployee();
             ServiceRestaurant serviceRestaurant = new ServiceRestaurant();
             Restaurant restaurant = new Restaurant()
@@ -18,7 +20,7 @@ namespace MyConsoleApp
                 Adress = "baku"
 
             };
-           
+
             Restaurant restaurant1 = new Restaurant()
             {
                 Name = "BakuXaous",
@@ -82,7 +84,7 @@ namespace MyConsoleApp
                 $"{employee.RestaurantName}\n" +
                 $"{employee.dateTime}\n" +
                 $" {employee.Age}");
-                
+
 
 
             Console.WriteLine();
@@ -117,10 +119,66 @@ namespace MyConsoleApp
             Console.WriteLine();
             Console.WriteLine();
 
-        
+
+            Table table = new Table()
+            {
+                TableNo = "p100",
+                MoneyTabel = 100,
+                RestaurantNameTable = "Uyut"
+
+
+            };
+            Table table1 = new Table()
+            {
+                TableNo = "p110",
+                MoneyTabel = 200,
+                RestaurantNameTable = "Uyut"
+
+
+            };
+            Table table2 = new Table()
+            {
+                
+                TableNo = "p200",
+                MoneyTabel = 400,
+                RestaurantNameTable = "Baku"
+
+            };
+            serviceTable.Create(table);
+            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{table.Id}\nTableNo:" +
+                $"{table.TableNo}\n" +
+                $"MoneyTable:{table.MoneyTabel}\n");
+
+            serviceTable.Create(table1);
+            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{table1.Id}\nTableNo:" +
+                $"{table1.TableNo}\n" +
+                $"MoneyTable:{table1.MoneyTabel}\n");
+
+            serviceTable.Create(table2);
+            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{table2.Id}\nTableNo:" +
+                $"{table2.TableNo}\n" +
+                $"MoneyTable:{table2.MoneyTabel}\n");
 
 
 
+
+
+
+
+
+
+
+
+
+            //serviceTable.Delete(1);
+            //foreach (var item in serviceTable.GetAll())
+            //{
+            //    Console.WriteLine(item.TableNo);
+            //}
+
+            //Console.WriteLine(serviceTable.UpdateMoneyTable(1, 500).MoneyTabel);
+
+            //serviceTable.UpdateTableNo(1, "p322");
             //serviceRestaurant.Delete(1);
             //foreach (var item in serviceEmployee.GetAll())
             //{

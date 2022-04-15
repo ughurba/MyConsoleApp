@@ -11,18 +11,10 @@ namespace Business.Interfaces
     {
 
         Client Creat(Client client);
-        
-
-
-        Employee Create(Employee employee);
-        Employee Delete(int id);
         bool DeleteByName(string name);
-        Employee UpdateSalary(int salary, int id);
-        Employee UpdatePosition(string position, int id);
-        Employee UpdatePlaceOfWork(int id, string adress);
-        Employee GetEmployee(int id);
-        List<Employee> GetAll();
-        List<Employee> GetAllEmployeeByRestName(string restaurantName = null);
+        Client UpdateMoney(int id, int money);
+
+       
 
 
 
