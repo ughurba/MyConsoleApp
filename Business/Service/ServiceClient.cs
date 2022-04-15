@@ -44,15 +44,23 @@ namespace Business.Service
         {
             Client client = _clientRepository.GetOne(c => c.Id == id); 
             Table table = _tableRepository.GetOne(t=>t.TableNo == tableNo);
-            if(client.MoneyClient >= table.MoneyTabel)
+            if(table.Reservition == "boshdur")
             {
-                table.Reservition = client.Name;
-                PrintAndEnum.Print(ConsoleColor.Green, $" {table.TableNo} № stol {client.Name} terfden Resevition oldu");
-                return client; 
+                if(client.MoneyClient >= table.MoneyTabel)
+                {
+                    table.Reservition = client.Name;
+                        PrintAndEnum.Print(ConsoleColor.Green, $" {table.TableNo} № stol {client.Name} terfden Resevition oldu");
+                        return client;
+                }
+                else
+                {
+                    PrintAndEnum.Print(ConsoleColor.Red, $"bu wexsin pulu catmir bu stolu zakaz etmeye , bu stolun qiymeti {table.MoneyTabel}");
+                    return null;
+                }
             }
             else
             {
-                PrintAndEnum.Print(ConsoleColor.Green, $"bu wexsin pulu catmir bu stolu zakaz etmeye , bu stolun qiymeti {table.MoneyTabel}");
+                PrintAndEnum.Print(ConsoleColor.Red, $"cox tessufki bizim {table.TableNo} № stolumuz reservition olunub");
                 return null;
             }
             

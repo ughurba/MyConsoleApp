@@ -123,7 +123,7 @@ namespace MyConsoleApp
             Table table = new Table()
             {
                 TableNo = "p100",
-                MoneyTabel = 100,
+                MoneyTabel = 1000,
                 RestaurantNameTable = "Uyut"
 
 
@@ -166,15 +166,15 @@ namespace MyConsoleApp
             {
                 Name = "sahil",
                 Age = 18,
-                MoneyClient = 500,
+                MoneyClient = 100000,
                 Surname = "afetov"
             };
 
             Client client1 = new Client()
             {
-                Name = "sahil",
+                Name = "efqan",
                 Age = 18,
-                MoneyClient = 100,
+                MoneyClient = 500,
                 Surname = "afetov"
             };
             Client client2 = new Client()
@@ -210,7 +210,9 @@ namespace MyConsoleApp
 
            
 
-            Console.WriteLine(serviceClient.Reservition(1, "p100"));
+            serviceClient.Reservition(1, "p100");
+
+            serviceClient.Reservition(2, "p110");
             serviceTable.GetAll();
             foreach (var item in serviceTable.GetAll())
             {
