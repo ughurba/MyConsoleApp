@@ -88,11 +88,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\MyConsoleApp\\MyConsoleApp.csproj",
+      "projectUniqueName": "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\MyConsoleApp\\MyConsoleApp.csproj",
       "projectName": "MyConsoleApp",
-      "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\MyConsoleApp\\MyConsoleApp.csproj",
+      "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\MyConsoleApp\\MyConsoleApp.csproj",
       "packagesPath": "C:\\Users\\Clean__Laptop\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\MyConsoleApp\\obj\\",
+      "outputPath": "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\MyConsoleApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -113,14 +113,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Business\\Business.csproj": {
-              "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Business\\Business.csproj"
+            "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\Business\\Business.csproj": {
+              "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\Business\\Business.csproj"
             },
-            "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Entities\\Entities.csproj"
+            "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\Entities\\Entities.csproj"
             },
-            "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Utilities\\Utilities.csproj": {
-              "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Utilities\\Utilities.csproj"
+            "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\Utilities\\Utilities.csproj": {
+              "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\Utilities\\Utilities.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VGcAGc80QFz8q06yNG/ppHsNx+udefYnLVBSsqIYs5VO7tKRhcDq9w8jr6hYPnqvVm+mzA5K3WLmXzHDMLDGcA==",
+  "dgSpecHash": "tdEP0rMlM7ryCSvssYcs3ifJVkNhfj8m2wB3FEmiu/crqgNMOQGu4cHXVhKWwz44ujwOBPeCW87JC9vaKGMO+g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Utilities\\Utilities.csproj",
+  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\Utilities\\Utilities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

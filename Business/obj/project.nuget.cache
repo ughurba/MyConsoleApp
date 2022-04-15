@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JCDk9VAt0lgNCkLDwKqEQpz2K+6gRkKWwyB1UdO/HU97Anc7ZxxnWldNOxmgRTgrEc1V0Mt/wx7TUiINt//HlA==",
+  "dgSpecHash": "E4FUm92nn13dy+6z2WtwjsZwGMBrxbNCFOZ3S6FEpEe5ErNCAqR0w4VIEQTdHtmiY0wVCUZe9FPAxJh8E1SOiQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Business\\Business.csproj",
+  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\app\\MyConsoleAppCsharp\\Business\\Business.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
