@@ -3,6 +3,7 @@ using DataAccess.Repositoriyes;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
+using Utilities.Extension;
 using Utilities.Helper;
 
 namespace Business.Service
@@ -14,20 +15,19 @@ namespace Business.Service
         RestaurantRepository _restaurantRepository = new RestaurantRepository();
         public Restaurant Creat(Restaurant restaurant)
         {
-            if (restaurant.Name.Length >= 4)
-            {
-                Count++;
-                restaurant.Id = Count;
-                _restaurantRepository.Create(restaurant);
 
-                return restaurant;
-            }
-            else
+            if (restaurant.Name.CheckCreate(restaurant.Name))
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Restoran name 4 herifden cox olmalidir");
-                return null;
+                if (restaurant.Adress.CheckAdress(restaurant.Adress))
+                {
+                    Count++;
+                    restaurant.Id = Count;
+                    _restaurantRepository.Create(restaurant);
+                    return restaurant;
+                }
             }
-
+            
+            return null;
 
         }
 

@@ -6,19 +6,43 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities.Helper;
 
 namespace Business.Service
 {
     public class ServiceTable : ITable
     {
+        RestaurantRepository restaurantRepository = new RestaurantRepository();
         TableRepository _tableRepository = new TableRepository();
         public static int Count { get; set; }
         public Table Create(Table table)
         {
-            Count++;
-            table.Id = Count;
-            _tableRepository.Create(table);
-            return table;
+          
+           Restaurant res =  restaurantRepository.GetOne(r => table.RestaurantNameTable == r.Name);
+            if(res != null)
+            {
+
+                if (table.TableNo.Length >= 3)
+                {
+                    Count++;
+                    table.Id = Count;
+                    _tableRepository.Create(table);
+                    return table;
+                }
+                else
+                {
+                    PrintAndEnum.Print(ConsoleColor.Red, "Stolun No 3 herifden cox olmalidir");
+                    return null;
+                }
+
+            }
+            else
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, "Bele adi restoran yoxdur");
+                return null;
+            }
+            
+
         }
 
         public Table Delete(int id)
