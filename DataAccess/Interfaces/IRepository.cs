@@ -9,6 +9,7 @@ namespace DataAccess.Interfaces
 {
     public interface IRepository<T> where T:IEntity
     {
+        bool DeleteAll(Predicate<T> filter =null);
         bool Create(T entity);
         bool Update(T entity);
         bool Delete(T entity);

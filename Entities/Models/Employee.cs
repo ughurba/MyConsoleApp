@@ -16,5 +16,6 @@ namespace Entities.Models
         public int Salary { get; set; }
         public int Experience { get; set; }
         public string RestaurantName { get; set; }
+       public DateTime dateTime { get; set; }
     }
 }

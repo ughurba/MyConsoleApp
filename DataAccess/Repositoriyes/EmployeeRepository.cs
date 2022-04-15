@@ -31,6 +31,19 @@ namespace DataAccess.Repositoriyes
             
         }
 
+        public bool DeleteAll(Predicate<Employee> emp = null)
+        {
+            if(emp == null)
+            {
+                return false;
+            }
+            else
+            {
+                DataContext.employees.RemoveAll(emp);
+                return true;
+            }
+        }
+
         public List<Employee> GetAll(Predicate<Employee> filter = null)
         {
             return filter == null ? DataContext.employees :

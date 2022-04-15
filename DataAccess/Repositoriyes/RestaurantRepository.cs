@@ -36,6 +36,21 @@ namespace DataAccess.Repositoriyes
             }
         }
 
+        public bool DeleteAll(Predicate<Restaurant> restDel = null)
+        {
+            if(restDel == null)
+            {
+                return false;
+            }
+            else
+            {
+
+                DataContext.restaurants.RemoveAll(restDel);
+                return true;
+            }
+            
+        }
+
         public List<Restaurant> GetAll(Predicate<Restaurant> filter = null)
         {
             return filter == null ? DataContext.restaurants :

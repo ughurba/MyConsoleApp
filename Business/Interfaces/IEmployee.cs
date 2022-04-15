@@ -11,6 +11,7 @@ namespace Business.Interfaces
     {
         Employee Create(Employee employee);
         Employee Delete(int id);
+        bool DeleteByName(string name);
         Employee UpdateSalary(int salary ,int id);
         Employee UpdatePosition(string position,int id);
         Employee UpdatePlaceOfWork(int id,string adress);

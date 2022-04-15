@@ -17,8 +17,10 @@ namespace Business.Service
 
             if (employee.Experience >= 2)
             {
+
                 Count++;
                 employee.Id = Count;
+                employee.dateTime = DateTime.Now;
                 _employeeRepository.Create(employee);
                 ;
                 return employee;
@@ -34,16 +36,17 @@ namespace Business.Service
         public Employee Delete(int id)
         {
 
-            Employee Emp = _employeeRepository.GetOne(e => e.Id == id);
-            if (Emp == null)
+            Employee EmpDelete = _employeeRepository.GetOne(e => e.Id == id);
+            
+            if (EmpDelete == null)
             {
                 PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li employee tapilmadi");
                 return null;
             }
             else
             {
-                _employeeRepository.Delete(Emp);
-                return Emp;
+                _employeeRepository.Delete(EmpDelete);
+                return EmpDelete;
             }
 
 
@@ -133,6 +136,14 @@ namespace Business.Service
                 return empSalary;
             }
 
+        }
+
+        public  bool DeleteByName(string name)
+        {
+          
+            _employeeRepository.DeleteAll(e=>e.RestaurantName == name);
+            return true;
+           
         }
     }
 }

@@ -14,20 +14,20 @@ namespace MyConsoleApp
             ServiceRestaurant serviceRestaurant = new ServiceRestaurant();
             Restaurant restaurant = new Restaurant()
             {
-                Name = "BakuXaous",
+                Name = "Baku",
                 Adress = "baku"
 
             };
            
             Restaurant restaurant1 = new Restaurant()
             {
-                Name = "MoskvaXaous",
+                Name = "BakuXaous",
                 Adress = "moskov"
 
             };
             Restaurant restaurant2 = new Restaurant()
             {
-                Name = "Uyut",
+                Name = "Moskva",
                 Adress = "ural"
 
             };
@@ -45,7 +45,7 @@ namespace MyConsoleApp
                 Salary = 100,
                 Position = "officant",
                 Experience = 2,
-                RestaurantName = "MoskvaXaous"
+                RestaurantName = "Baku"
 
             };
             Employee employee1 = new Employee()
@@ -55,7 +55,7 @@ namespace MyConsoleApp
                 Salary = 100,
                 Position = "officant",
                 Experience = 2,
-                RestaurantName = "MoskvaXaous"
+                RestaurantName = "Baku"
 
             };
             Employee employee2 = new Employee()
@@ -76,7 +76,9 @@ namespace MyConsoleApp
                 $"\n{employee.Salary}\n" +
                 $"{employee.Position}\n" +
                 $"{employee.Experience}\n" +
-                $"{employee.RestaurantName}");
+                $"{employee.RestaurantName}\n" +
+                $"{employee.dateTime}");
+                
 
 
             Console.WriteLine();
@@ -89,7 +91,9 @@ namespace MyConsoleApp
             $"\n{employee1.Salary}\n" +
             $"{employee1.Position}\n" +
             $"{employee1.Experience}\n" +
-            $"{employee1.RestaurantName}");
+            $"{employee1.RestaurantName}\n" +
+            $"{ employee1.dateTime}"
+            );
 
             Console.WriteLine();
             Console.WriteLine();
@@ -101,7 +105,27 @@ namespace MyConsoleApp
             $"\n{employee2.Salary}\n" +
             $"{employee2.Position}\n" +
             $"{employee2.Experience}\n" +
-            $"{employee2.RestaurantName}");
+            $"{employee2.RestaurantName}\n" +
+            $"{ employee2.dateTime}");
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+        
+
+
+
+            //serviceRestaurant.Delete(1);
+            //foreach (var item in serviceEmployee.GetAll())
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
+
+            //Console.WriteLine("resotaran gore caqirdiqlarim");
+            //foreach (var item in serviceEmployee.GetAllEmployeeByRestName("Baku"))
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
 
 
             //   Console.WriteLine();
@@ -141,14 +165,16 @@ namespace MyConsoleApp
 
 
 
-            //Console.WriteLine("resotaran gore caqirdiqlarim");
-            //foreach (var item in serviceEmployee.GetAllEmployeeByRestName("MoskvaXaous"))
-            //{
-            //    Console.WriteLine(item.Name);
-            //}
+
 
             //Console.WriteLine(serviceEmployee.GetEmployee(2).Name.ToLower());
-            serviceEmployee.UpdatePlaceOfWork(10, "hello");
+            //serviceEmployee.UpdatePlaceOfWork(10, "hello");
+            //serviceRestaurant.Delete(10);
+            //serviceRestaurant.GetRestaurant(10);
+            //Console.WriteLine(serviceRestaurant.UpdateAdress(1, "adasd").Name);
+            //Console.WriteLine(serviceRestaurant.GetRestaurant(1).Adress);
+            //Console.WriteLine(serviceRestaurant.UpdateName(1,"dasdas").Name);
+
 
 
 

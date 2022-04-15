@@ -10,10 +10,11 @@ namespace Business.Service
     public class ServiceRestaurant : IRestaurant
     {
         public static int Count { get; set; }
+        ServiceEmployee serviceEmployee = new ServiceEmployee();
         RestaurantRepository _restaurantRepository = new RestaurantRepository();
         public Restaurant Creat(Restaurant restaurant)
         {
-            if (restaurant.Name.Length > 4)
+            if (restaurant.Name.Length >= 4)
             {
                 Count++;
                 restaurant.Id = Count;
@@ -32,16 +33,20 @@ namespace Business.Service
 
         public Restaurant Delete(int id)
         {
-            Restaurant restaurant = _restaurantRepository.GetOne(r => r.Id == id);
-            if (restaurant == null)
+           
+            Restaurant restaurantDelete = _restaurantRepository.GetOne(r => r.Id == id);
+            
+           
+            if (restaurantDelete == null)
             {
                 PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li restoran yoxdur");
                 return null;
             }
             else
             {
-                _restaurantRepository.Delete(restaurant);
-                return restaurant;
+                serviceEmployee.DeleteByName(restaurantDelete.Name);
+                _restaurantRepository.Delete(restaurantDelete);
+                return restaurantDelete;
             }
 
         }
