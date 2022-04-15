@@ -66,7 +66,7 @@ namespace DataAccess.Repositoriyes
             }
             else
             {
-                Employee UpEmploye = GetOne(emp => emp.Salary == entity.Salary);
+                Employee UpEmploye = GetOne(emp => emp.Id == entity.Id);
                 UpEmploye = entity;
                 return true;
             }

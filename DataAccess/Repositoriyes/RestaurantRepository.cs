@@ -73,7 +73,7 @@ namespace DataAccess.Repositoriyes
             }
             else
             {
-                Restaurant UpEmploye = GetOne(emp => emp.Name == entity.Name);
+                Restaurant UpEmploye = GetOne(emp => emp.Id == entity.Id);
                 UpEmploye = entity;
                 return true;
             }

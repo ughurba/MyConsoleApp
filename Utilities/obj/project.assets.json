@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Clean__Laptop\\Desktop\\MyConsoleApp\\Utilities\\Utilities.csproj",
+      "projectUniqueName": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Utilities\\Utilities.csproj",
       "projectName": "Utilities",
-      "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\MyConsoleApp\\Utilities\\Utilities.csproj",
+      "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Utilities\\Utilities.csproj",
       "packagesPath": "C:\\Users\\Clean__Laptop\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Clean__Laptop\\Desktop\\MyConsoleApp\\Utilities\\obj\\",
+      "outputPath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Utilities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

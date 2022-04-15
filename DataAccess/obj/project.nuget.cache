@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xwasMdDjZmLStyFmD5ZApdQMpaRgQaLk6xdTvz+0ii6JJDezEm2LrNnknvjkI1gG2gc99R8n265NlTdOJBJYKg==",
+  "dgSpecHash": "3jGR2tomYE+krk440lSKNYscddSgXt0mfos0wAb5i72x7oUbuOSJFn44tX0HLI9FJBvu/cRVhaYuiRpaBEIWBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\MyConsoleApp\\DataAccess\\DataAccess.csproj",
+  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\DataAccess\\DataAccess.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

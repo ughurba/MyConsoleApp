@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z4y7TI2U8vuhed3Nq1ls2TtVqy02kF3hn1cSxt0o/77qV0Zr0i1SpM6sjMtRf3mjUVy8gPqaTDekvAXk87wyZQ==",
+  "dgSpecHash": "RfLuUIDe7YDQtIZ9gSaB+zVF/URQiIxL8EkZWhRQ0/2lpCmENflW8dQ0owucE1mCa/7DSHZm42ef41mNEnsTKA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\MyConsoleApp\\Entities\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Entities\\Entities.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

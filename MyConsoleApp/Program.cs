@@ -45,7 +45,8 @@ namespace MyConsoleApp
                 Salary = 100,
                 Position = "officant",
                 Experience = 2,
-                RestaurantName = "Baku"
+                RestaurantName = "Baku",
+                Age = 25
 
             };
             Employee employee1 = new Employee()
@@ -55,7 +56,8 @@ namespace MyConsoleApp
                 Salary = 100,
                 Position = "officant",
                 Experience = 2,
-                RestaurantName = "Baku"
+                RestaurantName = "Baku",
+                Age = 20
 
             };
             Employee employee2 = new Employee()
@@ -65,7 +67,8 @@ namespace MyConsoleApp
                 Salary = 1030,
                 Position = "barmen",
                 Experience = 3,
-                RestaurantName = "Uyut"
+                RestaurantName = "Uyut",
+                Age = 18
 
             };
             Console.WriteLine();
@@ -77,7 +80,8 @@ namespace MyConsoleApp
                 $"{employee.Position}\n" +
                 $"{employee.Experience}\n" +
                 $"{employee.RestaurantName}\n" +
-                $"{employee.dateTime}");
+                $"{employee.dateTime}\n" +
+                $" {employee.Age}");
                 
 
 
@@ -92,7 +96,8 @@ namespace MyConsoleApp
             $"{employee1.Position}\n" +
             $"{employee1.Experience}\n" +
             $"{employee1.RestaurantName}\n" +
-            $"{ employee1.dateTime}"
+            $"{employee1.dateTime}\n" +
+            $"{employee1.Age}"
             );
 
             Console.WriteLine();
@@ -106,7 +111,8 @@ namespace MyConsoleApp
             $"{employee2.Position}\n" +
             $"{employee2.Experience}\n" +
             $"{employee2.RestaurantName}\n" +
-            $"{ employee2.dateTime}");
+            $"{ employee2.dateTime}\n" +
+            $"{employee2.Age}");
 
             Console.WriteLine();
             Console.WriteLine();

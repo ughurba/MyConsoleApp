@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Clean__Laptop\\Desktop\\MyConsoleApp\\Entities\\Entities.csproj",
+      "projectUniqueName": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Entities\\Entities.csproj",
       "projectName": "Entities",
-      "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\MyConsoleApp\\Entities\\Entities.csproj",
+      "projectPath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Entities\\Entities.csproj",
       "packagesPath": "C:\\Users\\Clean__Laptop\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Clean__Laptop\\Desktop\\MyConsoleApp\\Entities\\obj\\",
+      "outputPath": "C:\\Users\\Clean__Laptop\\Desktop\\test\\MyConsoleAppCsharp\\Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
