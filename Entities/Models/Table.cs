@@ -9,7 +9,7 @@ namespace Entities.Models
 {
     public class Table:IEntity
     {
-        public bool Reservition { get; set; } = true;
+        public string Reservition { get; set; } = "bowdur";
         public string RestaurantNameTable { get; set; }
         public int  MoneyTabel { get; set; }
         public string TableNo { get; set; }

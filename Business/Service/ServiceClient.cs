@@ -6,12 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities.Helper;
 
 namespace Business.Service
 {
     public class ServiceClient : IClient
 
     {
+        TableRepository _tableRepository = new TableRepository();
         public static int Count { get; set; }
         ClientRepository _clientRepository = new ClientRepository();
         public Client Creat(Client client)
@@ -36,6 +38,24 @@ namespace Business.Service
             Client clientUp =   _clientRepository.GetOne(c => c.Id == id);
             clientUp.MoneyClient = money;
             return clientUp;
+        }
+
+        public Client Reservition(int id, string tableNo)
+        {
+            Client client = _clientRepository.GetOne(c => c.Id == id); 
+            Table table = _tableRepository.GetOne(t=>t.TableNo == tableNo);
+            if(client.MoneyClient >= table.MoneyTabel)
+            {
+                table.Reservition = client.Name;
+                PrintAndEnum.Print(ConsoleColor.Green, $" {table.TableNo} № stol {client.Name} terfden Resevition oldu");
+                return client; 
+            }
+            else
+            {
+                PrintAndEnum.Print(ConsoleColor.Green, $"bu wexsin pulu catmir bu stolu zakaz etmeye , bu stolun qiymeti {table.MoneyTabel}");
+                return null;
+            }
+            
         }
     }
 }

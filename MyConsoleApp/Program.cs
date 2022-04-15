@@ -138,7 +138,7 @@ namespace MyConsoleApp
             };
             Table table2 = new Table()
             {
-                
+
                 TableNo = "p200",
                 MoneyTabel = 400,
                 RestaurantNameTable = "Baku"
@@ -162,13 +162,60 @@ namespace MyConsoleApp
 
 
 
+            Client client = new Client()
+            {
+                Name = "sahil",
+                Age = 18,
+                MoneyClient = 500,
+                Surname = "afetov"
+            };
 
+            Client client1 = new Client()
+            {
+                Name = "sahil",
+                Age = 18,
+                MoneyClient = 100,
+                Surname = "afetov"
+            };
+            Client client2 = new Client()
+            {
+                Name = "sahil",
+                Age = 18,
+                MoneyClient = 100,
+                Surname = "afetov"
+            };
+            serviceClient.Creat(client);
+            serviceClient.Creat(client1);
+            serviceClient.Creat(client2);
 
+            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{client.Id}\n" +
+                $"Name:{client.Name}\n" +
+                $"Age:{client.Age}\nMoneyClient:{client.MoneyClient}");
 
+            Console.WriteLine();
+            Console.WriteLine();
 
+            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{client1.Id}\n" +
+                $"Name:{client1.Name}\n" +
+                $"Age:{client1.Age}\nMoneyClient:{client1.MoneyClient}");
 
+            Console.WriteLine();
+            Console.WriteLine();
 
+            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{client2.Id}\n" +
+                $"Name:{client2.Name}\n" +
+                $"Age:{client2.Age}\nMoneyClient:{client2.MoneyClient}");
 
+            //Console.WriteLine(serviceClient.UpdateMoney(1, 500).MoneyClient);
+
+           
+
+            Console.WriteLine(serviceClient.Reservition(1, "p100"));
+            serviceTable.GetAll();
+            foreach (var item in serviceTable.GetAll())
+            {
+                Console.WriteLine(item.Reservition);
+            }
 
             //serviceTable.Delete(1);
             //foreach (var item in serviceTable.GetAll())
@@ -226,9 +273,6 @@ namespace MyConsoleApp
             //$"{employee1.RestaurantName}");
             //   Console.WriteLine();
             //   Console.WriteLine();
-
-
-
 
 
             //Console.WriteLine(serviceEmployee.GetEmployee(2).Name.ToLower());

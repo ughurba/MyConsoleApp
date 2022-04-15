@@ -14,7 +14,7 @@ namespace Business.Interfaces
         bool DeleteByName(string name);
         Client UpdateMoney(int id, int money);
 
-       
+        Client Reservition(int id, string tableNo);
 
 
 
