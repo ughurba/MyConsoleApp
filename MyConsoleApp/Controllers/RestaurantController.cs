@@ -15,44 +15,49 @@ namespace MyConsoleApp.Controllers
         }
         public void Creat()
         {
-                try
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece  Restaurant acmaq istediyiniz qeyd edin");
+                int size = int.Parse(Console.ReadLine());
+                for (int i = 0; i < size; i++)
                 {
 
+                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin");
+                    string name = Console.ReadLine();
+                    name.ToLower();
+                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Adress-in qeyd edin");
+                    string adress = Console.ReadLine();
+                    adress.ToLower();
 
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece  Restaurant acmaq istediyiniz qeyd edin");
-                    int size = int.Parse(Console.ReadLine());
-                    for (int i = 0; i < size; i++)
+                    Restaurant restaurant = new Restaurant()
                     {
+                        Name = name,
+                        Adress = adress,
+                    };
 
-                        PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin");
-                        string name = Console.ReadLine();
-                        name.ToLower();
-                        PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Adress-in qeyd edin");
-                        string adress = Console.ReadLine();
-                        adress.ToLower();
+                    if (serviceRestaurant.Creat(restaurant) != null)
+                    {
+                        PrintAndEnum.Print(ConsoleColor.Green, $"Id:{restaurant.Id}\nName:{restaurant.Name}\n" +
+                                                 $"Adress:{restaurant.Adress}\n" +
+                                                 $"acildi");
 
-                        Restaurant restaurant = new Restaurant()
-                        {
-                            Name = name,
-                            Adress = adress,
-                        };
-
-                        if (serviceRestaurant.Creat(restaurant) != null)
-                        {
-                            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{restaurant.Id}\nName:{restaurant.Name}\n" +
-                                                     $"Adress:{restaurant.Adress}\n" +
-                                                     $"acildi");
-                        }
                     }
-
+                    else
+                    {
+                        Program.CreateRestaurant();
+                    }  
                 }
-                catch (Exception ex)
-                {
-                  Program.CreateRestaurant();
-                    Console.WriteLine(ex.Message);
+          
 
-                }
-            
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Program.CreateRestaurant();
+               
+                
+            }
+
         }
     }
 }

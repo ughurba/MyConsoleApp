@@ -19,7 +19,6 @@ namespace MyConsoleApp.Controllers
             try
             {
 
-
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece  Stol acmaq istediyiniz qeyd edin");
                 int size = int.Parse(Console.ReadLine());
                 for (int i = 0; i < size; i++)
@@ -38,20 +37,25 @@ namespace MyConsoleApp.Controllers
                         MoneyTabel = moneyTable,
                         RestaurantNameTable = restaurantNameTable
                     };
-                    
+
                     if (serviceTable.Create(table) != null)
                     {
                         PrintAndEnum.Print(ConsoleColor.Green, $"Id:{table.Id}\nMoney Table:{table.MoneyTabel}\n" +
                                                  $"Reservition:{table.Reservition}\n" +
                                                  $"acildi");
                     }
+                    else
+                    {
+                        Program.CreateTable();
+                    }
                 }
 
             }
             catch (Exception ex)
             {
-                Program.CreateTable();
+
                 Console.WriteLine(ex.Message);
+                Program.CreateTable();
 
             }
 

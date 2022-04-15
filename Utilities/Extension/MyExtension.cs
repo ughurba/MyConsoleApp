@@ -96,6 +96,7 @@ namespace Utilities.Extension
                 PrintAndEnum.Print(ConsoleColor.Red, "Restoran acilmadi\n1)Restaurant adress minimum 4 herif olmalidi\n" +
                     "2)Icinde number olmalidir\n" +
                     "3)Bowluq olmalidi !!!\n");
+                
                 return false;
             }
         }

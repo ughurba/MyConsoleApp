@@ -10,7 +10,9 @@ namespace Business.Service
 {
     public class ServiceRestaurant : IRestaurant
     {
+
         public static int Count { get; set; }
+       
         ServiceEmployee serviceEmployee = new ServiceEmployee();
         RestaurantRepository _restaurantRepository = new RestaurantRepository();
         public Restaurant Creat(Restaurant restaurant)
@@ -26,7 +28,7 @@ namespace Business.Service
                     return restaurant;
                 }
             }
-            
+           
             return null;
 
         }
