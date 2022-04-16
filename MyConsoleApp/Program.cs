@@ -12,6 +12,7 @@ namespace MyConsoleApp
             EmployeeController employeeController = new EmployeeController();
             TableController tableController = new TableController();
             RestaurantController restaurantController = new RestaurantController();
+            ClientController clientController = new ClientController();
 
             PrintAndEnum.Print(ConsoleColor.Green, "WELCOME TO OUR RESTAURANT");
 
@@ -131,8 +132,28 @@ namespace MyConsoleApp
                         }
                         break;
                     case 4:
+                        PrintAndEnum.Print(ConsoleColor.Blue, "1-Create Client\n2-Delete By Name\n" +
+                        "3-Update Money\n4-Reservition\n0-Main menu");
+                        int chocie4 = int.Parse(Console.ReadLine());
+                        switch (chocie4)
+                        {
+                            case 1:
+                                clientController.Creat();
+                                break;
+                            case 2:
+                                clientController.DeleteByName();
+                                break;
 
+                            case 3:
+                                clientController.UpdateMoney();
+                                break;
 
+                            case 4:
+                                clientController.Reservition();
+                                break;
+                            case 0:
+                                goto EnterName;
+                        }
 
                         break;
 

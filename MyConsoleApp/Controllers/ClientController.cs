@@ -72,5 +72,51 @@ namespace MyConsoleApp.Controllers
 
 
         }
+        public void DeleteByName()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Muwterinin Name qeyd edin");
+                string nameClient = Console.ReadLine();
+                serviceClient.DeleteByName(nameClient);
+
+            }catch(Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
+            }
+           
+
+        }
+        public void UpdateMoney()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                int id = int.Parse(Console.ReadLine());
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Pulu qeyd edin");
+                int money = int.Parse(Console.ReadLine());
+                serviceClient.UpdateMoney(id, money);
+            }catch(Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
+            }
+         
+        }
+        public void Reservition()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                int id = int.Parse(Console.ReadLine());
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik hansi stolu reserv etmek isetyirsinizse o stolun nomresin qeyd edin");
+                string tableNo = Console.ReadLine();
+                serviceClient.Reservition(id, tableNo);
+            }catch(Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red,ex.Message);
+
+            }
+
+        }
     }
 }
