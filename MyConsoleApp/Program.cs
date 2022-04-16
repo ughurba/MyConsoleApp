@@ -13,9 +13,9 @@ namespace MyConsoleApp
             TableController tableController = new TableController();
             RestaurantController restaurantController = new RestaurantController();
             ClientController clientController = new ClientController();
-
+           
             PrintAndEnum.Print(ConsoleColor.Green, "WELCOME TO OUR RESTAURANT");
-
+           
             CreateRestaurant();
             CreateTable();
             CreateEmployee();
@@ -36,7 +36,7 @@ namespace MyConsoleApp
                             PrintAndEnum.Print(ConsoleColor.Green, "-------Menu Restaurant------");
                          Console.WriteLine();
                         PrintAndEnum.Print(ConsoleColor.Blue, "1-Create Restaurant\n2-Update Restauran by Name\n" +
-                        "3-Update Adress\n4-Delete\n5-Get All\n6-Get Restaurant by Id\n7-Get Restaurant by Name\n0-Main menu");
+                        "3-Update Adress\n4-Delete\n5-Get All\n6-Get Restaurant by Id\n7-Get Restaurant by Name\n8-GetAllEmpPositionByRestName\n0-Main menu");
                         int chocie = int.Parse(Console.ReadLine());
                         switch (chocie)
                         {
@@ -61,6 +61,9 @@ namespace MyConsoleApp
                             case 7:
                                 restaurantController.GetRestaurantByName();
                                 break;
+                                case 8:
+                                    restaurantController.GetAllEmpPositionByRestName();
+                                    break;
                             case 0:
                                 goto EnterName;
                         }
@@ -105,7 +108,7 @@ namespace MyConsoleApp
                             Console.WriteLine();
                         PrintAndEnum.Print(ConsoleColor.Blue, "1-Create Employee\n2-Delete Employee\n" +
                                               "3-Get All\n4-Get All Employee By Restaurant Name\n5-Get Employee\n6-Update Place Of Work\n7-Update Position\n" +
-                                              "8-Update Salary\n9-Delete By Name\n0-Main menu");
+                                              "8-Update Salary\n0-Main menu");
                         int chocie3 = int.Parse(Console.ReadLine());
                         switch (chocie3)
                         {
@@ -132,9 +135,6 @@ namespace MyConsoleApp
                                 break;
                             case 8:
                                 employeeController.UpdateSalary();
-                                break;
-                            case 9:
-                                employeeController.DeleteByName();
                                 break;
                             case 0:
                                 goto EnterName;

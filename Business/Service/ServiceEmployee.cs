@@ -15,7 +15,7 @@ namespace Business.Service
         public Employee Create(Employee employee)
         {
 
-            if (employee.Experience >= 2)
+            if (employee.Experience >= 2 && employee.Age >=18 && employee.Age < 30)
             {
 
                 Count++;
@@ -27,7 +27,7 @@ namespace Business.Service
             }
             else
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Iw tecrubesi 2 ilden cox olmalidi!!!");
+                PrintAndEnum.Print(ConsoleColor.Red, "Iw tecrubesi 2 ilden cox ve yawida 18-30 arasi olmalidir");
                 return null;
             }
 
@@ -46,6 +46,14 @@ namespace Business.Service
             else
             {
                 _employeeRepository.Delete(EmpDelete);
+                Console.WriteLine();
+                PrintAndEnum.Print(ConsoleColor.Red, $"Id:{EmpDelete.Id}\nName:{EmpDelete.Name}\n" +
+                                                 $"Surname:{EmpDelete.Surname}\n" +
+                                                 $"Age:{EmpDelete.Age}\n" +
+                                                 $"Experience:{EmpDelete.Experience}-il\n" +
+                                                 $"Position:{EmpDelete.Position}\n" +
+                                                 $"Salary:{EmpDelete.Salary} azn\n" +
+                                                 $"Ugurla silindi");
                 return EmpDelete;
             }
 
@@ -85,6 +93,13 @@ namespace Business.Service
             }
             else
             {
+                PrintAndEnum.Print(ConsoleColor.Green, $"Id:{empId.Id}\nName:{empId.Name}\n" +
+                                              $"Surname:{empId.Surname}\n" +
+                                              $"Age:{empId.Age}\n" +
+                                              $"Experience:{empId.Experience}-il\n" +
+                                              $"Position:{empId.Position}\n" +
+                                              $"Salary:{empId.Salary} azn\n" +
+                                              $"qeyd olundu");
                 return empId;
             }
         }
@@ -101,6 +116,7 @@ namespace Business.Service
             else
             {
                 empAdress.RestaurantName = adress;
+                PrintAndEnum.Print(ConsoleColor.Green, "Ugurla update olundu"); 
                 return empAdress;
             }
 
@@ -109,7 +125,7 @@ namespace Business.Service
         public Employee UpdatePosition(string position, int id)
         {
             Employee empPosition = _employeeRepository.GetOne(e => e.Id == id);
-            if (empPosition == null)
+            if (empPosition ==  null)
             {
                 PrintAndEnum.Print(ConsoleColor.Red, "Bele bir id-li employee yoxdur!!!!!");
                 return null;
@@ -117,6 +133,7 @@ namespace Business.Service
             else
             {
                 empPosition.Position = position;
+                PrintAndEnum.Print(ConsoleColor.Green, "Ugurla update olundu");
                 return empPosition;
             }
 
@@ -124,6 +141,9 @@ namespace Business.Service
 
         public Employee UpdateSalary(int salary, int id)
         {
+
+
+
             Employee empSalary = _employeeRepository.GetOne(e => e.Id == id);
             if (empSalary == null)
             {
@@ -133,11 +153,20 @@ namespace Business.Service
             else
             {
                 empSalary.Salary = salary;
+                PrintAndEnum.Print(ConsoleColor.Green, "Ugurla update olundu");
                 return empSalary;
             }
 
         }
 
+
+
+        public List<Employee> GetAllEmployeePosition(string restName, string position)
+        { 
+            List<Employee> empList = _employeeRepository.GetAll(e => e.Position == position && e.RestaurantName == restName);
+            return empList;
+           
+        }
         public  bool DeleteByName(string name)
         {
           

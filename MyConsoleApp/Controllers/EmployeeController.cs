@@ -26,7 +26,7 @@ namespace MyConsoleApp.Controllers
                 for (int i = 0; i < size; i++)
                 {
 
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "ishcinin adin qeyd edin");
+                    PrintAndEnum.Print(ConsoleColor.Yellow, "ishcinin Name qeyd edin");
                     string name = Console.ReadLine();
                   
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Surname qeyd edin");
@@ -54,7 +54,7 @@ namespace MyConsoleApp.Controllers
                     {
                         pos = "muhafizeci";
                     }
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik ne qeder iwci maaw istediyin qeyd edin");
+                    PrintAndEnum.Print(ConsoleColor.Yellow, " Salary  qeyd edin");
                     int salary = int.Parse(Console.ReadLine());
                     Employee employee = new Employee()
                     {
@@ -72,9 +72,9 @@ namespace MyConsoleApp.Controllers
                         PrintAndEnum.Print(ConsoleColor.Green, $"Id:{employee.Id}\nName:{employee.Name}\n" +
                                                  $"Surname:{employee.Surname}\n" +
                                                  $"Age:{employee.Age}\n" +
-                                                 $"Experience:{employee.Experience}\n" +
+                                                 $"Experience:{employee.Experience}-il\n" +
                                                  $"Position:{employee.Position}\n" +
-                                                 $"Salary:{employee.Salary}\n" +
+                                                 $"Salary:{employee.Salary} azn\n" +
                                                  $"qeyd olundu");
                     }
                     else
@@ -120,9 +120,9 @@ namespace MyConsoleApp.Controllers
                                                    $"Surname:{item.Surname}\n" +
                                                    $"Age:{item.Age}\n" +
                                                    $"Position:{item.Position}\n" +
-                                                   $"Salary:{item.Salary}\n" +
+                                                   $"Salary:{item.Salary} azn\n" +
                                                    $"Data:{item.dateTime}\n" +
-                                                   $"Experience:{item.Experience}\n" +
+                                                   $"Experience:{item.Experience}-il\n" +
                                                    $"Work:{item.RestaurantName}");
                     Console.WriteLine();
                     Console.WriteLine();
@@ -146,9 +146,9 @@ namespace MyConsoleApp.Controllers
                                                        $"Surname:{item.Surname}\n" +
                                                        $"Age:{item.Age}\n" +
                                                        $"Position:{item.Position}\n" +
-                                                       $"Salary:{item.Salary}\n" +
+                                                       $"Salary:{item.Salary} azn\n" +
                                                        $"Data:{item.dateTime}\n" +
-                                                       $"Experience:{item.Experience}\n" +
+                                                       $"Experience:{item.Experience}-il\n" +
                                                        $"Work:{item.RestaurantName}");
                     Console.WriteLine();
                     Console.WriteLine();
@@ -165,7 +165,7 @@ namespace MyConsoleApp.Controllers
             {
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
-                PrintAndEnum.Print(ConsoleColor.Green,serviceEmployee.GetEmployee(id).Name);
+                serviceEmployee.GetEmployee(id);
 
             }
             catch (Exception ex)
@@ -241,20 +241,20 @@ namespace MyConsoleApp.Controllers
             }  
           
         }
-        public void DeleteByName()
-        {
-            try
-            {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Name qeyd edin");
-                string name = Console.ReadLine();
+        //public void DeleteByName()
+        //{
+        //    try
+        //    {
+        //        PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Name qeyd edin");
+        //        string name = Console.ReadLine();
              
-                serviceEmployee.DeleteByName(name.ToLower());
+        //        serviceEmployee.DeleteByName(name.ToLower());
 
-            }catch(Exception ex)
-            {
-                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
-            }
+        //    }catch(Exception ex)
+        //    {
+        //        PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
+        //    }
            
-        }
+        //}
     }
 }

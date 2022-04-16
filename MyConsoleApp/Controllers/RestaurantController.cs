@@ -18,7 +18,7 @@ namespace MyConsoleApp.Controllers
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece  Restaurant acmaq istediyiniz qeyd edin");
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece Restaurant acmaq istediyiniz qeyd edin");
                 int size = int.Parse(Console.ReadLine());
                 for (int i = 0; i < size; i++)
                 {
@@ -174,6 +174,43 @@ namespace MyConsoleApp.Controllers
                 Console.WriteLine(ex.Message);
             }
            
+        }
+        public void GetAllEmpPositionByRestName()
+        {
+           ServiceEmployee serviceEmployee = new ServiceEmployee();
+            PrintAndEnum.Print(ConsoleColor.Yellow, "Restaurant name qeyd edin,");
+            string restName = Console.ReadLine();
+            PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
+            string pos = null;
+            int position = int.Parse(Console.ReadLine());
+            if (position == 1)
+            {
+                pos = "ofisiant";
+            }
+            else if (position == 2)
+            {
+                pos = "ashbaz";
+            }
+            else if (position == 3)
+            {
+                pos = "barmen";
+            }
+            else if (position == 4)
+            {
+                pos = "muhafizeci";
+            }
+           
+            foreach (var item in serviceEmployee.GetAllEmployeePosition(restName.ToLower(), pos.ToLower()))
+            {
+                PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nName:{item.Name}\n" +
+                                                        $"Surname:{item.Surname}\n" +
+                                                        $"Age:{item.Age}\n" +
+                                                        $"Position:{item.Position}\n" +
+                                                        $"Salary:{item.Salary} azn\n" +
+                                                        $"Data:{item.dateTime}\n" +
+                                                        $"Experience:{item.Experience}-il\n" +
+                                                        $"Work:{item.RestaurantName}");
+            }
         }
     }
 }

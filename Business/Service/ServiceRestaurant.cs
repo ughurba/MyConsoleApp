@@ -58,6 +58,8 @@ namespace Business.Service
             return _restaurantRepository.GetAll();
         }
 
+       
+
         public Restaurant GetRestaurant(int id)
         {
             Restaurant restaurant = _restaurantRepository.GetOne(r => r.Id == id);

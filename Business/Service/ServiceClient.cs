@@ -62,6 +62,7 @@ namespace Business.Service
                     {
                         table.Reservition = client.Name;
                         client.MoneyClient -= table.MoneyTabel;
+                        PrintAndEnum.Print(ConsoleColor.Green, $" {table.TableNo} № stol {client.Name} terfden Reservition oldu");
 
                         return client;
                     }
@@ -73,7 +74,7 @@ namespace Business.Service
                 }
                 else
                 {
-                    PrintAndEnum.Print(ConsoleColor.Green, $" {table.TableNo} № stol {client.Name} terfden Reservition oldu");
+                    PrintAndEnum.Print(ConsoleColor.Red, $"Cox tessufki {table.TableNo} № stolumuz Reservition olunub");
                     return null;
                 }
             }

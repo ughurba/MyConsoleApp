@@ -73,6 +73,9 @@ namespace Business.Service
         {
             Table upTabelMoney = _tableRepository.GetOne(t => t.Id == id);
             upTabelMoney.MoneyTabel = money;
+            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{upTabelMoney.Id}\nTableNo:{upTabelMoney.TableNo}\nMoney Table:{upTabelMoney.MoneyTabel}\n" +
+                                         $"Reservition:{upTabelMoney.Reservition}\n" +
+                                         $"Ugurla Update olundu");
             return upTabelMoney;
         }
 
@@ -80,6 +83,9 @@ namespace Business.Service
         {
             Table upTableNo = _tableRepository.GetOne(t => t.Id == id);
             upTableNo.TableNo = tableNo;
+            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{upTableNo.Id}\nTableNo:{upTableNo.TableNo}\nMoney Table:{upTableNo.MoneyTabel}\n" +
+                                            $"Reservition:{upTableNo.Reservition}\n" +
+                                            $"Ugurla Update olundu");
             return upTableNo;
         }
     }

@@ -26,12 +26,12 @@ namespace MyConsoleApp.Controllers
 
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik stolun nomresin qeyd edin");
                     string tableNo = Console.ReadLine();
-                    
+
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik stolun qiymetin  qeyd edin");
                     int moneyTable = int.Parse(Console.ReadLine());
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Hansi Restauranta gedecek bu stol hemen resotranin Name qeyd edin");
                     string restaurantNameTable = Console.ReadLine();
-                  
+
                     Table table = new Table()
                     {
                         TableNo = tableNo.ToLower(),
@@ -81,9 +81,10 @@ namespace MyConsoleApp.Controllers
         {
             foreach (var item in serviceTable.GetAll())
             {
-                PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nMoney Table:{item.MoneyTabel}\n" +
-                                                 $"Reservition:{item.Reservition}\n");
 
+                PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nTableNo:{item.TableNo}\nMoney Table:{item.MoneyTabel}\n" +
+                                            $"Reservition:{item.Reservition}\n");
+                                            
             }
 
         }
@@ -93,12 +94,13 @@ namespace MyConsoleApp.Controllers
             {
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin");
                 string restName = Console.ReadLine();
-            
+
 
                 foreach (var item in serviceTable.GetAllTableByRestName(restName.ToLower()))
                 {
-                    PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nRestaurant Name:{item.RestaurantNameTable}\nMoney Table:{item.MoneyTabel}\n" +
-                                                $"Reservition:{item.Reservition}\n");
+                    PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nTableNo:{item.TableNo}\nMoney Table:{item.MoneyTabel}\n" +
+                                               $"Reservition:{item.Reservition}\n");
+                                               
 
                 }
 
@@ -151,7 +153,7 @@ namespace MyConsoleApp.Controllers
                 int id = int.Parse(Console.ReadLine());
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik new Table No qeyd edin");
                 string newTableNo = Console.ReadLine();
-              
+
                 serviceTable.UpdateTableNo(id, newTableNo.ToLower());
             }
             catch (Exception ex)
