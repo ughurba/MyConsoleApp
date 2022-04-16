@@ -93,5 +93,162 @@ namespace MyConsoleApp.Controllers
 
 
         }
+        public void Delete()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                int id = int.Parse(Console.ReadLine());
+                serviceEmployee.Delete(id);
+
+            }catch (Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red,ex.Message);
+            }
+           
+
+        }
+        public void GetAll()
+        {
+            try
+            {
+
+                foreach (var item in serviceEmployee.GetAll())
+                {
+                    PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nName:{item.Name}\n" +
+                                                   $"Surname:{item.Surname}\n" +
+                                                   $"Age:{item.Age}\n" +
+                                                   $"Position:{item.Position}\n" +
+                                                   $"Salary:{item.Salary}\n" +
+                                                   $"Data:{item.dateTime}\n" +
+                                                   $"Experience:{item.Experience}\n" +
+                                                   $"Work:{item.RestaurantName}");
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        public void GetAllEmployeeByRestName()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant name qeyd edin");
+                string restName = Console.ReadLine();
+                foreach (var item in serviceEmployee.GetAllEmployeeByRestName(restName))
+                {
+                    PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nName:{item.Name}\n" +
+                                                       $"Surname:{item.Surname}\n" +
+                                                       $"Age:{item.Age}\n" +
+                                                       $"Position:{item.Position}\n" +
+                                                       $"Salary:{item.Salary}\n" +
+                                                       $"Data:{item.dateTime}\n" +
+                                                       $"Experience:{item.Experience}\n" +
+                                                       $"Work:{item.RestaurantName}");
+                }
+            }catch (Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red,ex.Message);
+            }
+        
+        }
+        public void GetEmployee()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik id qeyd edin");
+                int id = int.Parse(Console.ReadLine());
+                PrintAndEnum.Print(ConsoleColor.Green,serviceEmployee.GetEmployee(id).Name);
+
+            }
+            catch (Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
+            }
+         
+
+        }
+        public void UpdatePlaceOfWork()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                int id = int.Parse(Console.ReadLine());
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik yeni Ish yerinin Name yazin");
+                string newAdress = Console.ReadLine();
+                serviceEmployee.UpdatePlaceOfWork(id, newAdress);
+            }catch (Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
+            }
+       
+
+
+        }
+        public void UpdatePosition()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik id qeyd edin");
+                int id = int.Parse(Console.ReadLine());
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
+                string pos = null;
+                int position = int.Parse(Console.ReadLine());
+                if (position == 1)
+                {
+                    pos = "ofisiant";
+                }
+                else if (position == 2)
+                {
+                    pos = "ashbaz";
+                }
+                else if (position == 3)
+                {
+                    pos = "barmen";
+                }
+                else if (position == 4)
+                {
+                    pos = "muhafizeci";
+                }
+                serviceEmployee.UpdatePosition(pos, id);
+            }catch(Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red,ex.Message);
+            }
+      
+
+        }
+        public void UpdateSalary()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                int id = int.Parse(Console.ReadLine());
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Yeni Mashi  qeyd edin");
+                int salary = int.Parse(Console.ReadLine());
+                serviceEmployee.UpdateSalary(salary, id);
+            }catch(Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
+            }  
+          
+        }
+        public void DeleteByName()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Name qeyd edin");
+                string name = Console.ReadLine();
+                serviceEmployee.DeleteByName(name);
+
+            }catch(Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
+            }
+           
+        }
     }
 }

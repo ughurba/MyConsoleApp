@@ -9,6 +9,7 @@ namespace MyConsoleApp
 
         static void Main(string[] args)
         {
+            EmployeeController employeeController = new EmployeeController();
             TableController tableController = new TableController();
             RestaurantController restaurantController = new RestaurantController();
 
@@ -91,24 +92,49 @@ namespace MyConsoleApp
                         }
                         break;
                     case 3:
+                        PrintAndEnum.Print(ConsoleColor.Blue, "1-Create Employee\n2-Delete Employee\n" +
+                                              "3-Get All\n4-Get All Employee By Restaurant Name\n5-Get Employee\n6-Update Place Of Work\n7-Update Position\n" +
+                                              "8-Update Salary\n9-Delete By Name\n0-Main menu");
+                        int chocie3 = int.Parse(Console.ReadLine());
+                        switch (chocie3)
+                        {
+                            case 1:
+                                employeeController.Creat();
+                                break;
+                            case 2:
+                                employeeController.Delete();
+                                break;
+                            case 3:
+                                employeeController.GetAll();
+                                break;
+                            case 4:
+                                employeeController.GetAllEmployeeByRestName();
+                                break;
+                            case 5:
+                                employeeController.GetEmployee();
+                                break;
+                            case 6:
+                                employeeController.UpdatePlaceOfWork();
+                                break;
+                            case 7:
+                                employeeController.UpdatePosition();
+                                break;
+                            case 8:
+                                employeeController.UpdateSalary();
+                                break;
+                            case 9:
+                                employeeController.DeleteByName();
+                                break;
+                            case 0:
+                                goto EnterName;
 
-
+                        }
                         break;
-
-
                     case 4:
 
 
 
                         break;
-
-
-
-
-
-
-
-
 
                 }
             }
