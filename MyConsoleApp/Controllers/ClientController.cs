@@ -118,5 +118,15 @@ namespace MyConsoleApp.Controllers
             }
 
         }
+        public void GetAll()
+        {
+            foreach (var item in serviceClient.GetAll())
+            {
+                PrintAndEnum.Print(ConsoleColor.Cyan, $"Id:{item.Id}\nName:{item.Name}\n" +
+                                               $"Surname:{item.Surname}\nAge:{item.Age}\nMoney:{item.MoneyClient}");
+                                               
+
+            }
+        }
     }
 }

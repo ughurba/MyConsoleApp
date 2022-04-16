@@ -133,7 +133,9 @@ namespace MyConsoleApp
                         break;
                     case 4:
                         PrintAndEnum.Print(ConsoleColor.Blue, "1-Create Client\n2-Delete By Name\n" +
-                        "3-Update Money\n4-Reservition\n0-Main menu");
+                        "3-Update Money\n4-Reservition\n" +
+                        "5-Get All" +
+                        "\n0-Main menu");
                         int chocie4 = int.Parse(Console.ReadLine());
                         switch (chocie4)
                         {
@@ -150,6 +152,9 @@ namespace MyConsoleApp
 
                             case 4:
                                 clientController.Reservition();
+                                break;
+                            case 5:
+                                clientController.GetAll();
                                 break;
                             case 0:
                                 goto EnterName;

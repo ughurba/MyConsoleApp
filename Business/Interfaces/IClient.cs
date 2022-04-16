@@ -15,6 +15,7 @@ namespace Business.Interfaces
         Client UpdateMoney(int id, int money);
 
         Client Reservition(int id, string tableNo);
+        List<Client> GetAll();
 
 
 

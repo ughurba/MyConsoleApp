@@ -65,5 +65,10 @@ namespace Business.Service
             }
             
         }
+
+        public List<Client> GetAll()
+        {
+            return  _clientRepository.GetAll();
+        }
     }
 }
