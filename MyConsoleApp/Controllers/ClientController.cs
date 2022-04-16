@@ -23,17 +23,17 @@ namespace MyConsoleApp.Controllers
             try
             {
 
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece iwci goturmek isdediyinizi qeyd edin");
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece muwteri qeyd etmek iseyirsinize onu qeyd edin");
                 int size = int.Parse(Console.ReadLine());
                 for (int i = 0; i < size; i++)
                 {
 
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Mushterinin adin qeyd edin");
                     string name = Console.ReadLine();
-                    name.ToLower();
+                 
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Surname qeyd edin");
                     string surname = Console.ReadLine();
-                    surname.ToLower();
+                
                     PrintAndEnum.Print(ConsoleColor.Yellow, " yawin qeyd edin");
                     int age = int.Parse(Console.ReadLine());
              
@@ -41,8 +41,8 @@ namespace MyConsoleApp.Controllers
                     int moneyClient = int.Parse(Console.ReadLine());
                     Client client = new Client()
                     {
-                        Name = name,
-                        Surname = surname,                        
+                        Name = name.ToLower(),
+                        Surname = surname.ToLower(),                        
                         Age = age,
                         MoneyClient = moneyClient
                         
@@ -79,8 +79,8 @@ namespace MyConsoleApp.Controllers
             {
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Muwterinin Name qeyd edin");
                 string nameClient = Console.ReadLine();
-                nameClient.ToLower();
-                serviceClient.DeleteByName(nameClient);
+            
+                serviceClient.DeleteByName(nameClient.ToLower());
 
             }catch(Exception ex)
             {
@@ -112,8 +112,8 @@ namespace MyConsoleApp.Controllers
                 int id = int.Parse(Console.ReadLine());
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik hansi stolu reserv etmek isetyirsinizse o stolun nomresin qeyd edin");
                 string tableNo = Console.ReadLine();
-                tableNo.ToLower();  
-                serviceClient.Reservition(id, tableNo);
+         
+                serviceClient.Reservition(id, tableNo.ToLower());
             }catch(Exception ex)
             {
                 PrintAndEnum.Print(ConsoleColor.Red,ex.Message);

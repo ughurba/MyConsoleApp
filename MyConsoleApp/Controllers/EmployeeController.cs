@@ -28,10 +28,10 @@ namespace MyConsoleApp.Controllers
 
                     PrintAndEnum.Print(ConsoleColor.Yellow, "ishcinin adin qeyd edin");
                     string name = Console.ReadLine();
-                    name.ToLower();
+                  
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Surname qeyd edin");
                     string surname = Console.ReadLine();
-                    surname.ToLower();
+              
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Iwcinin yawin qeyd edin");
                     int age = int.Parse(Console.ReadLine());
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik ish tecrubesin qeyd edin");
@@ -58,8 +58,8 @@ namespace MyConsoleApp.Controllers
                     int salary = int.Parse(Console.ReadLine());
                     Employee employee = new Employee()
                     {
-                        Name = name,
-                        Surname = surname,
+                        Name = name.ToLower(),
+                        Surname = surname.ToLower(),
                         Age = age,
                         Experience = ex,
                         Position = pos,
@@ -183,8 +183,8 @@ namespace MyConsoleApp.Controllers
                 int id = int.Parse(Console.ReadLine());
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik yeni Ish yerinin Name yazin");
                 string newAdress = Console.ReadLine();
-                newAdress.ToLower();
-                serviceEmployee.UpdatePlaceOfWork(id, newAdress);
+              
+                serviceEmployee.UpdatePlaceOfWork(id, newAdress.ToLower());
             }catch (Exception ex)
             {
                 PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
@@ -247,8 +247,8 @@ namespace MyConsoleApp.Controllers
             {
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Name qeyd edin");
                 string name = Console.ReadLine();
-                name.ToLower();
-                serviceEmployee.DeleteByName(name);
+             
+                serviceEmployee.DeleteByName(name.ToLower());
 
             }catch(Exception ex)
             {

@@ -36,7 +36,7 @@ namespace Business.Service
         public Client UpdateMoney(int id, int money)
         {
             Client clientUp =   _clientRepository.GetOne(c => c.Id == id);
-            clientUp.MoneyClient = money;
+            clientUp.MoneyClient += money;
             return clientUp;
         }
 
@@ -44,26 +44,40 @@ namespace Business.Service
         {
             Client client = _clientRepository.GetOne(c => c.Id == id); 
             Table table = _tableRepository.GetOne(t=>t.TableNo == tableNo);
-            if(table.Reservition == "boshdur")
+          
+            if(client == null)
             {
-                if(client.MoneyClient >= table.MoneyTabel)
-                {
-                    table.Reservition = client.Name;
-                        PrintAndEnum.Print(ConsoleColor.Green, $" {table.TableNo} № stol {client.Name} terfden Resevition oldu");
-                        return client;
-                }
-                else
-                {
-                    PrintAndEnum.Print(ConsoleColor.Red, $"bu wexsin pulu catmir bu stolu zakaz etmeye , bu stolun qiymeti {table.MoneyTabel}");
-                    return null;
-                }
+                PrintAndEnum.Print(ConsoleColor.Red, $"Bele id-li wexs tapilmadi ");
+                return null;
+            }else if(table == null)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, $"Bele nomreli stolumuz yoxdur");
+                return null;
             }
             else
             {
-                PrintAndEnum.Print(ConsoleColor.Red, $"cox tessufki bizim {table.TableNo} № stolumuz reservition olunub");
-                return null;
+                if (table.Reservition == "boshdur")
+                {
+                    if (client.MoneyClient >= table.MoneyTabel)
+                    {
+                        table.Reservition = client.Name;
+                        client.MoneyClient -= table.MoneyTabel;
+
+                        return client;
+                    }
+                    else
+                    {
+                        PrintAndEnum.Print(ConsoleColor.Red, $"bu wexsin pulu catmir bu stolu zakaz etmeye , bu stolun qiymeti {table.MoneyTabel}");
+                        return null;
+                    }
+                }
+                else
+                {
+                    PrintAndEnum.Print(ConsoleColor.Green, $" {table.TableNo} № stol {client.Name} terfden Reservition oldu");
+                    return null;
+                }
             }
-            
+        
         }
 
         public List<Client> GetAll()

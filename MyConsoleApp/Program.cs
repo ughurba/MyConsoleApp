@@ -21,14 +21,20 @@ namespace MyConsoleApp
             CreateEmployee();
             CreateClient();
         EnterName:
-            PrintAndEnum.Print(ConsoleColor.Blue, "1-Menu Restaurant\n2-Menu Table\n" +
-                "3-Menu Employee\n4-Menu Client");
-            int num = int.Parse(Console.ReadLine());
-            while (true)
+            try
             {
+
+                while (true) { 
+                PrintAndEnum.Print(ConsoleColor.Blue, "1-Menu Restaurant\n2-Menu Table\n" + "3-Menu Employee\n4-Menu Client");
+
+                int num = int.Parse(Console.ReadLine());
+
+
                 switch (num)
                 {
                     case 1:
+                            PrintAndEnum.Print(ConsoleColor.Green, "-------Menu Restaurant------");
+                         Console.WriteLine();
                         PrintAndEnum.Print(ConsoleColor.Blue, "1-Create Restaurant\n2-Update Restauran by Name\n" +
                         "3-Update Adress\n4-Delete\n5-Get All\n6-Get Restaurant by Id\n7-Get Restaurant by Name\n0-Main menu");
                         int chocie = int.Parse(Console.ReadLine());
@@ -60,6 +66,8 @@ namespace MyConsoleApp
                         }
                         break;
                     case 2:
+                            PrintAndEnum.Print(ConsoleColor.Green, "-------Menu Table------");
+                            Console.WriteLine();
                         PrintAndEnum.Print(ConsoleColor.Blue, "1-Create Tabel\n2-Delete Table\n" +
                         "3-Get All\n4-Get All Table By Restaurant Name\n5-Get Table\n6-Update Money Table\n7-Update Table No\n0-Main menu");
                         int chocie2 = int.Parse(Console.ReadLine());
@@ -93,6 +101,8 @@ namespace MyConsoleApp
                         }
                         break;
                     case 3:
+                            PrintAndEnum.Print(ConsoleColor.Green, "-------Menu Employee------");
+                            Console.WriteLine();
                         PrintAndEnum.Print(ConsoleColor.Blue, "1-Create Employee\n2-Delete Employee\n" +
                                               "3-Get All\n4-Get All Employee By Restaurant Name\n5-Get Employee\n6-Update Place Of Work\n7-Update Position\n" +
                                               "8-Update Salary\n9-Delete By Name\n0-Main menu");
@@ -132,6 +142,8 @@ namespace MyConsoleApp
                         }
                         break;
                     case 4:
+                            PrintAndEnum.Print(ConsoleColor.Green, "-------Menu Client------");
+                            Console.WriteLine();
                         PrintAndEnum.Print(ConsoleColor.Blue, "1-Create Client\n2-Delete By Name\n" +
                         "3-Update Money\n4-Reservition\n" +
                         "5-Get All" +
@@ -164,6 +176,14 @@ namespace MyConsoleApp
 
                 }
             }
+                
+            }catch (Exception ex)
+            {
+                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
+                goto EnterName;
+            }
+
+
 
         }
         public static void CreateTable()
