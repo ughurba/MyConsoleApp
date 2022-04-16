@@ -1,6 +1,7 @@
 ﻿using Business.Service;
 using Entities.Models;
 using System;
+using Utilities.Extension;
 using Utilities.Helper;
 
 namespace MyConsoleApp.Controllers
@@ -58,6 +59,119 @@ namespace MyConsoleApp.Controllers
                 
             }
 
+        }
+
+
+        public void UpdateByName()
+        {
+            try
+            {
+                EnterName:
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Id qeyd edin,");
+                int id = int.Parse(Console.ReadLine());
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Yeni Restaurant Name qeyd edin");
+                string newName = Console.ReadLine();
+
+                if (newName.CheckCreate(newName))
+                {
+                    serviceRestaurant.UpdateName(id, newName);
+                }
+                else
+                {
+                    goto EnterName;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+
+
+
+        }
+        public void UpdateAdress()
+        {
+            try
+            {
+            EnterName:
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Id qeyd edin,");
+                int id = int.Parse(Console.ReadLine());
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Yeni Restaurant Adress qeyd edin");
+                string newAdress = Console.ReadLine();
+
+                if (newAdress.CheckAdress(newAdress))
+                {
+                    serviceRestaurant.UpdateAdress(id, newAdress);
+                 
+                }
+                else
+                {
+                    goto EnterName;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void GetAll()
+        {
+            foreach (var item in serviceRestaurant.GetAll())
+            {
+                PrintAndEnum.Print(ConsoleColor.Cyan, $"Id:{item.Id}\nName:{item.Name}\n" +
+                                               $"Adress:{item.Adress}\n");
+                                               
+            }
+        }
+        public void Delete()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Id qeyd edin,");
+                int id = int.Parse(Console.ReadLine());
+                serviceRestaurant.Delete(id);
+
+
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+        public void GetRestaurantByName()
+        {
+            try
+            {
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin,");
+                string name = Console.ReadLine();
+                foreach (var item in serviceRestaurant.GetRestaurantByName(name))
+                {
+                    PrintAndEnum.Print(ConsoleColor.Cyan, $"Id:{item.Id}\nName:{item.Name}\n" +
+                                              $"Adress:{item.Adress}\n");
+                }
+                
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+         
+        }
+        public void GetRestaurantById()
+        {
+            try
+            {
+           
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Id qeyd edin,");
+                int id = int.Parse((Console.ReadLine()));
+                PrintAndEnum.Print(ConsoleColor.Green, serviceRestaurant.GetRestaurant(id).Name);
+
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+           
         }
     }
 }

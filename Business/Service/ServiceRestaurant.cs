@@ -98,6 +98,9 @@ namespace Business.Service
             else
             {
                 restAdress.Adress = adress;
+                PrintAndEnum.Print(ConsoleColor.Green, $"Id:{restAdress.Id}\nName:{restAdress.Name}\n" +
+                                       $"Adress:{restAdress.Adress}\n" +
+                                       $"update olundu");
                 return restAdress;
             }
         }
@@ -114,6 +117,9 @@ namespace Business.Service
             else
             {
                 restName.Name = name;
+                PrintAndEnum.Print(ConsoleColor.Green, $"Id:{restName.Id}\nName:{restName.Name}\n" +
+                                             $"Adress:{restName.Adress}\n" +
+                                             $"update olundu");
                 return restName;
             }
         }

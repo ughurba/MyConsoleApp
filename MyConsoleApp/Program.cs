@@ -12,8 +12,8 @@ namespace MyConsoleApp
         
         static void Main(string[] args)
         {
-            
-               
+
+            RestaurantController restaurantController = new RestaurantController();
             //ServiceClient serviceClient = new ServiceClient();
             //ServiceTable serviceTable = new ServiceTable();
             //ServiceEmployee serviceEmployee = new ServiceEmployee();
@@ -27,9 +27,92 @@ namespace MyConsoleApp
             CreateTable();
             CreateEmployee();
             CreateClient();
-            
-       
-        
+
+            PrintAndEnum.Print(ConsoleColor.Blue, "1-Menu Restaurant\n2-Menu Table\n" +
+                "3-Menu Employee\n4-Menu Client");
+            int num = int.Parse(Console.ReadLine());
+            while (true)
+            {
+                switch (num)
+                {
+                    case 1:
+                        PrintAndEnum.Print(ConsoleColor.Blue, "1-Create Restaurant\n2-Update Restauran by Name\n" +
+                        "3-Update Adress\n4-Delete\n5-Get All\n6-Get Restaurant by Id\n7-Get Restaurant by Name\n");
+                        int chocie = int.Parse(Console.ReadLine());
+                        switch (chocie)
+                        {
+
+                            case 1:
+                                restaurantController.Creat();
+                                break;
+                            case 2:
+                                restaurantController.UpdateByName();
+                                break;
+                            case 3:
+                                restaurantController.UpdateAdress();
+                                break;
+                            case 4:
+                                restaurantController.Delete();
+                                break;
+                            case 5:
+                                restaurantController.GetAll();
+                                break;
+                            case 6:
+                                restaurantController.GetRestaurantById();
+                                break;
+                            case 7:
+                                restaurantController.GetRestaurantByName();
+                                break;
+
+
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        break;
+                    case 2:
+
+
+
+
+                        break;
+
+
+                    case 3:
+
+
+                        break;
+
+
+                    case 4:
+
+
+
+                        break;
+
+
+
+
+
+
+
+
+
+                }
+            }
+
         }
         public static void CreateTable()
         {
