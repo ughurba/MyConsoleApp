@@ -71,6 +71,7 @@ namespace MyConsoleApp.Controllers
                 int id = int.Parse(Console.ReadLine());
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Yeni Restaurant Name qeyd edin");
                 string newName = Console.ReadLine();
+                newName.ToLower();
 
                 if (newName.CheckCreate(newName))
                 {
@@ -100,6 +101,7 @@ namespace MyConsoleApp.Controllers
                 int id = int.Parse(Console.ReadLine());
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Yeni Restaurant Adress qeyd edin");
                 string newAdress = Console.ReadLine();
+                newAdress.ToLower();
 
                 if (newAdress.CheckAdress(newAdress))
                 {
@@ -146,6 +148,7 @@ namespace MyConsoleApp.Controllers
             {
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin,");
                 string name = Console.ReadLine();
+                name.ToLower();
                 foreach (var item in serviceRestaurant.GetRestaurantByName(name))
                 {
                     PrintAndEnum.Print(ConsoleColor.Cyan, $"Id:{item.Id}\nName:{item.Name}\n" +

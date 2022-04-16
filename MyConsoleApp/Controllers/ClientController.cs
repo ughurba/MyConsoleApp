@@ -33,6 +33,7 @@ namespace MyConsoleApp.Controllers
                     name.ToLower();
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Surname qeyd edin");
                     string surname = Console.ReadLine();
+                    surname.ToLower();
                     PrintAndEnum.Print(ConsoleColor.Yellow, " yawin qeyd edin");
                     int age = int.Parse(Console.ReadLine());
              
@@ -78,6 +79,7 @@ namespace MyConsoleApp.Controllers
             {
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Muwterinin Name qeyd edin");
                 string nameClient = Console.ReadLine();
+                nameClient.ToLower();
                 serviceClient.DeleteByName(nameClient);
 
             }catch(Exception ex)
@@ -110,6 +112,7 @@ namespace MyConsoleApp.Controllers
                 int id = int.Parse(Console.ReadLine());
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik hansi stolu reserv etmek isetyirsinizse o stolun nomresin qeyd edin");
                 string tableNo = Console.ReadLine();
+                tableNo.ToLower();  
                 serviceClient.Reservition(id, tableNo);
             }catch(Exception ex)
             {

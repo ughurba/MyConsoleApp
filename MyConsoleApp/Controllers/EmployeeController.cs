@@ -31,6 +31,7 @@ namespace MyConsoleApp.Controllers
                     name.ToLower();
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Surname qeyd edin");
                     string surname = Console.ReadLine();
+                    surname.ToLower();
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Iwcinin yawin qeyd edin");
                     int age = int.Parse(Console.ReadLine());
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik ish tecrubesin qeyd edin");
@@ -123,7 +124,8 @@ namespace MyConsoleApp.Controllers
                                                    $"Data:{item.dateTime}\n" +
                                                    $"Experience:{item.Experience}\n" +
                                                    $"Work:{item.RestaurantName}");
-
+                    Console.WriteLine();
+                    Console.WriteLine();
                 }
 
             }
@@ -148,6 +150,8 @@ namespace MyConsoleApp.Controllers
                                                        $"Data:{item.dateTime}\n" +
                                                        $"Experience:{item.Experience}\n" +
                                                        $"Work:{item.RestaurantName}");
+                    Console.WriteLine();
+                    Console.WriteLine();
                 }
             }catch (Exception ex)
             {
@@ -179,6 +183,7 @@ namespace MyConsoleApp.Controllers
                 int id = int.Parse(Console.ReadLine());
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik yeni Ish yerinin Name yazin");
                 string newAdress = Console.ReadLine();
+                newAdress.ToLower();
                 serviceEmployee.UpdatePlaceOfWork(id, newAdress);
             }catch (Exception ex)
             {
@@ -242,6 +247,7 @@ namespace MyConsoleApp.Controllers
             {
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Name qeyd edin");
                 string name = Console.ReadLine();
+                name.ToLower();
                 serviceEmployee.DeleteByName(name);
 
             }catch(Exception ex)

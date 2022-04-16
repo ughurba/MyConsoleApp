@@ -19,7 +19,7 @@ namespace MyConsoleApp.Controllers
             try
             {
 
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece  Stol acmaq istediyiniz qeyd edin");
+                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece  stol acmaq istediyiniz qeyd edin");
                 int size = int.Parse(Console.ReadLine());
                 for (int i = 0; i < size; i++)
                 {
@@ -27,10 +27,11 @@ namespace MyConsoleApp.Controllers
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik stolun nomresin qeyd edin");
                     string tableNo = Console.ReadLine();
                     tableNo.ToLower();
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Stolun qiymetin  qeyd edin");
+                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik stolun qiymetin  qeyd edin");
                     int moneyTable = int.Parse(Console.ReadLine());
                     PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Hansi Restauranta gedecek bu stol hemen resotranin Name qeyd edin");
                     string restaurantNameTable = Console.ReadLine();
+                    restaurantNameTable.ToLower();
                     Table table = new Table()
                     {
                         TableNo = tableNo,
@@ -42,7 +43,7 @@ namespace MyConsoleApp.Controllers
                     {
                         PrintAndEnum.Print(ConsoleColor.Green, $"Id:{table.Id}\nMoney Table:{table.MoneyTabel}\n" +
                                                  $"Reservition:{table.Reservition}\n" +
-                                                 $"acildi");
+                                                 $"gonderildi qeyd etiyiniz restorana");
                     }
                     else
                     {
@@ -91,6 +92,7 @@ namespace MyConsoleApp.Controllers
             {
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin");
                 string restName = Console.ReadLine();
+                restName.ToLower();
 
                 foreach (var item in serviceTable.GetAllTableByRestName(restName))
                 {
@@ -145,6 +147,7 @@ namespace MyConsoleApp.Controllers
                 int id = int.Parse(Console.ReadLine());
                 PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik new Table No qeyd edin");
                 string newTableNo = Console.ReadLine();
+                newTableNo.ToLower();
                 serviceTable.UpdateTableNo(id, newTableNo);
             }catch(Exception ex)
             {
