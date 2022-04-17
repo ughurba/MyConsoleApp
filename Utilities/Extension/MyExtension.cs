@@ -5,116 +5,168 @@ namespace Utilities.Extension
 {
     public static class MyExtension
     {
-        public static bool CheckCreate(this string chek, string name)
-        {
-            bool num = false;
-            bool num2 = false;
-            bool num3 = false;
-
-            for (int i = 0; i < name.Length; i++)
+        public static string CheckCreate()
+        {   EnterNameCreate:
+            string name = Console.ReadLine();
+            if (!string.IsNullOrEmpty(name))
             {
-                if (name.Length >= 4)
+                bool num = false;
+
+                bool num2 = false;
+
+
+                for (int i = 0; i < name.Length; i++)
                 {
-                    num = true;
+                    if (name.Length >= 4)
+                    {
+                        num = true;
+                    }
+                    if (char.IsNumber(name[i]))
+                    {
+                        num2 = false;
+                        break;
+                    }
+                    else
+                    {
+                        num2 = true;
+                    }
                 }
-                if (char.IsNumber(name[i]))
+                if (num == true && num2 == true)
                 {
-                    num2 = false;
-                    break;
+                    return name;
                 }
                 else
                 {
-                    num2 = true;
+                    Helper.Extension.Print(ConsoleColor.Red, "Xeta!!\n1) Name minimum 4 herif olmalidi\n" +
+                        "2)Icinde reqem olmali deyil\n");
+
+                    goto EnterNameCreate;
                 }
             }
-
-            for (int i = 0; i < name.Length; i++)
+            else
             {
-                if (char.IsWhiteSpace(name[i]))
+                Helper.Extension.Print(ConsoleColor.Red, "bow ola bilmez ,zehmet olmasa duzgun daxil edin");
+                goto EnterNameCreate;
+            }
+
+           
+
+
+
+        }
+        public static string CheckAdress()
+        {
+             EnterAdressCreate:
+            string adress = Console.ReadLine();
+            if (!string.IsNullOrEmpty(adress))
+            {
+
+                bool num = false;
+                bool num2 = false;
+                bool num3 = false;
+
+                for (int i = 0; i < adress.Length; i++)
                 {
-                    num3 = false;
-                    break;
+                    if (adress.Length >= 4)
+                    {
+                        num = true;
+                    }
+                    if (char.IsNumber(adress[i]))
+                    {
+                        num2 = true;
+                    }
+
+                }
+
+                for (int i = 0; i < adress.Length; i++)
+                {
+                    if (char.IsWhiteSpace(adress[i]))
+                    {
+                        num3 = true;
+
+                    }
+
+                }
+
+
+                if (num == true && num2 == true && num3 == true)
+                {
+                    return adress;
                 }
                 else
                 {
-                    num3 = true;
+                    Helper.Extension.Print(ConsoleColor.Red, "Restoran acilmadi\n1)Restaurant adress minimum 4 herif olmalidi\n" +
+                       "2)Icinde number olmalidir\n" +
+                       "3)Bowluq olmalidi !!!\n");
+                    goto EnterAdressCreate;
+
                 }
-            }
-
-
-            if (num == true && num2 == true && num3 == true)
-            {
-                return true;
             }
             else
             {
-                Helper.Extension.Print(ConsoleColor.Red, "Restoran acilmadi\n1)Restaurant name minimum 4 herif olmalidi\n" +
-                    "2)Icinde number olmali deyil\n" +
-                    "3)Bowluq ola bilmez!!!\n");
-                return false;
+                Helper.Extension.Print(ConsoleColor.Red, "bow ola bilmez ,zehmet olmasa duzgun daxil edin");
+                goto EnterAdressCreate;
             }
-
 
 
         }
-        public static bool CheckAdress(this string chek , string adress)
+        public static string CheckNull()
         {
-            bool num = false;
-            bool num2 = false;
-            bool num3 = false;
-
-            for (int i = 0; i < adress.Length; i++)
-            {
-                if (adress.Length >= 4)
+            string name;
+          
+                EnterName:
+                name = Console.ReadLine();
+                if (!string.IsNullOrEmpty(name))
                 {
-                    num = true;
+                    return name;
                 }
-                if (char.IsNumber(adress[i]))
+                else
                 {
-                    num2 = true;
+                    Helper.Extension.Print(ConsoleColor.Red, "bow ola bilmez ,zehmet olmasa duzgun daxil edin");
+                    goto EnterName; 
+                }
+
+           
+        }
+        public static int CheckInt()
+        {
+            IntError:
+            string str = Console.ReadLine();
+            int num;
+            if(int.TryParse(str, out num))
+            {
+                if(num < 0)
+                {
+                    Helper.Extension.Print(ConsoleColor.Red, "menfi ola bilmez");
+                    goto IntError;
+                }
+                else
+                {
+                    return num;
                 }
                
-            }
-
-            for (int i = 0; i < adress.Length; i++)
-            {
-                if (char.IsWhiteSpace(adress[i]))
-                {
-                    num3 = true;
-                    
-                }
-             
-            }
-
-
-            if (num == true && num2 == true && num3 == true)
-            {
-                return true;
             }
             else
             {
-                 Helper.Extension.Print(ConsoleColor.Red, "Restoran acilmadi\n1)Restaurant adress minimum 4 herif olmalidi\n" +
-                    "2)Icinde number olmalidir\n" +
-                    "3)Bowluq olmalidi !!!\n");
-                
-                return false;
+                Helper.Extension.Print(ConsoleColor.Red, "Zehmet olmasa duzgun daxil edin");
+                goto IntError;
             }
         }
-        public static bool CheckName(this string chek,string name)
+        public static int CheckIntAge()
         {
-            for (int i = 0; i < name.Length; i++)
+            EnterAge:
+            string str = Console.ReadLine();
+            int num;
+            int.TryParse(str, out num);
+            if(num >= 18 && num <= 30)
             {
-                if (char.IsNumber(name[i]))
-                {
-                    Helper.Extension.Print(ConsoleColor.Red, "Name-de reqem ola bilmez!!!");
-               
-                    return false;
-                }
-              
+                return num;
             }
-            return true;
-
+            else
+            {
+                Helper.Extension.Print(ConsoleColor.Red, "Age 18-30 arasi olmalidir");
+                goto EnterAge;
+            }
         }
-
     }
 }

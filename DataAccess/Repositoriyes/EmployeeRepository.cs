@@ -2,9 +2,6 @@
 using Entities.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Repositoriyes
 {
@@ -12,28 +9,28 @@ namespace DataAccess.Repositoriyes
     {
         public bool Create(Employee entity)
         {
-            if(entity == null)
+            if (entity == null)
             {
                 return false;
             }
             else
             {
-                DataContext.employees.Add(entity);  
+                DataContext.employees.Add(entity);
                 return true;
             }
         }
 
         public bool Delete(Employee Emp)
         {
-          
-            
-            return  DataContext.employees.Remove(Emp);
-            
+
+
+            return DataContext.employees.Remove(Emp);
+
         }
 
         public bool DeleteAll(Predicate<Employee> emp = null)
         {
-            if(emp == null)
+            if (emp == null)
             {
                 return false;
             }
@@ -49,7 +46,7 @@ namespace DataAccess.Repositoriyes
             return filter == null ? DataContext.employees :
                 DataContext.employees.FindAll(filter);
 
-                
+
         }
 
         public Employee GetOne(Predicate<Employee> filter = null)
@@ -58,19 +55,6 @@ namespace DataAccess.Repositoriyes
                 DataContext.employees.Find(filter);
         }
 
-        //public bool Update(Employee entity)
-        //{
-        //    if(entity == null)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        Employee UpEmploye = GetOne(emp => emp.Id == entity.Id);
-        //        UpEmploye = entity;
-        //        return true;
-        //    }
-           
-        //}
+
     }
 }

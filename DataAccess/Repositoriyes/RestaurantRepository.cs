@@ -2,9 +2,6 @@
 using Entities.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Repositoriyes
 {
@@ -38,7 +35,7 @@ namespace DataAccess.Repositoriyes
 
         public bool DeleteAll(Predicate<Restaurant> restDel = null)
         {
-            if(restDel == null)
+            if (restDel == null)
             {
                 return false;
             }
@@ -48,7 +45,7 @@ namespace DataAccess.Repositoriyes
                 DataContext.restaurants.RemoveAll(restDel);
                 return true;
             }
-            
+
         }
 
         public List<Restaurant> GetAll(Predicate<Restaurant> filter = null)
@@ -65,19 +62,6 @@ namespace DataAccess.Repositoriyes
                 DataContext.restaurants.Find(filter);
         }
 
-        //public bool Update(Restaurant entity)
-        //{
-        //    if (entity == null)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        Restaurant UpEmploye = GetOne(emp => emp.Id == entity.Id);
-        //        UpEmploye = entity;
-        //        return true;
-        //    }
 
-        //}
     }
 }

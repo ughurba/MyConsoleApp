@@ -1,7 +1,7 @@
 ﻿using Business.Service;
 using Entities.Models;
 using System;
-using System.Text;
+using Utilities.Extension;
 using Utilities.Helper;
 
 namespace MyConsoleApp.Controllers
@@ -15,194 +15,25 @@ namespace MyConsoleApp.Controllers
         }
         public void Creat()
         {
-            try
+
+            Extension.Print(ConsoleColor.Yellow, "Xaiw edirik nece iwci goturmek isdediyinizi qeyd edin");
+            int size = MyExtension.CheckInt();
+            for (int i = 0; i < size; i++)
             {
 
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik nece iwci goturmek isdediyinizi qeyd edin");
-                int size = int.Parse(Console.ReadLine());
-                for (int i = 0; i < size; i++)
-                {
+                Extension.Print(ConsoleColor.Yellow, "Name qeyd edin");
+                string name = MyExtension.CheckNull();
 
-                    Extension.Print(ConsoleColor.Yellow, "ishcinin Name qeyd edin");
-                    string name = Console.ReadLine();
+                Extension.Print(ConsoleColor.Yellow, "Surname qeyd edin");
+                string surname = MyExtension.CheckNull();
 
-                    Extension.Print(ConsoleColor.Yellow, "Surname qeyd edin");
-                    string surname = Console.ReadLine();
-
-                    Extension.Print(ConsoleColor.Yellow, "Iwcinin yawin qeyd edin");
-                    int age = int.Parse(Console.ReadLine());
-                    Extension.Print(ConsoleColor.Yellow, "Xaiw edirik ish tecrubesin qeyd edin");
-                    int ex = int.Parse(Console.ReadLine());
-                    Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
-                    string pos = null;
-                    int position = int.Parse(Console.ReadLine());
-                    if (position == 1)
-                    {
-                        pos = "ofisiant";
-                    }
-                    else if (position == 2)
-                    {
-                        pos = "ashbaz";
-                    }
-                    else if (position == 3)
-                    {
-                        pos = "barmen";
-                    }
-                    else if (position == 4)
-                    {
-                        pos = "muhafizeci";
-                    }
-                    Extension.Print(ConsoleColor.Yellow, " Salary  qeyd edin");
-                    int salary = int.Parse(Console.ReadLine());
-                    Employee employee = new Employee()
-                    {
-                        Name = name.ToLower(),
-                        Surname = surname.ToLower(),
-                        Age = age,
-                        Experience = ex,
-                        Position = pos,
-                        Salary = salary
-
-                    };
-
-                    if (serviceEmployee.Create(employee) != null)
-                    {
-                      
-                        Extension.Print(ConsoleColor.Green, $"Id:{employee.Id}\nName:{employee.Name}\n" +
-                                                 $"Surname:{employee.Surname}\n" +
-                                                 $"Age:{employee.Age}\n" +
-                                                 $"Experience:{employee.Experience}-il\n" +
-                                                 $"Position:{employee.Position}\n" +
-                                                 $"Salary:{employee.Salary} azn\n" +
-                                                 $"qeyd olundu");
-                    }
-                    else
-                    {
-                        Program.CreateEmployee();
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex.Message);
-                Program.CreateEmployee();
-
-            }
-
-
-        }
-        public void Delete()
-        {
-            try
-            {
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
-                int id = int.Parse(Console.ReadLine());
-                serviceEmployee.Delete(id);
-
-            }
-            catch (Exception ex)
-            {
-                Extension.Print(ConsoleColor.Red, ex.Message);
-            }
-
-
-        }
-        public void GetAll()
-        {
-            try
-            {
-
-                foreach (var item in serviceEmployee.GetAll())
-                {
-                    Extension.Print(ConsoleColor.Green, $"Id:{item.Id}\nName:{item.Name}\n" +
-                                                   $"Surname:{item.Surname}\n" +
-                                                   $"Age:{item.Age}\n" +
-                                                   $"Position:{item.Position}\n" +
-                                                   $"Salary:{item.Salary} azn\n" +
-                                                   $"Experience:{item.Experience}-il\n" +
-                                                   $"Work:{item.RestaurantName}");
-                    Console.WriteLine();
-                    Console.WriteLine();
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
-        public void GetAllEmployeeByRestName()
-        {
-            try
-            {
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant name qeyd edin");
-                string restName = Console.ReadLine();
-                foreach (var item in serviceEmployee.GetAllEmployeeByRestName(restName))
-                {
-                    Extension.Print(ConsoleColor.Green,$"Id:{item.Id}\nName:{item.Name}\n" +
-                                                       $"Surname:{item.Surname}\n" +
-                                                       $"Age:{item.Age}\n" +
-                                                       $"Position:{item.Position}\n" +
-                                                       $"Salary:{item.Salary} azn\n" +
-                                                       $"Qeyd olduqu tarix:{item.dateTime}\n" +
-                                                       $"Experience:{item.Experience}-il\n" +
-                                                       $"Work:{item.RestaurantName}");
-                    Console.WriteLine();
-                    Console.WriteLine();
-                }
-            }
-            catch (Exception ex)
-            {
-                Extension.Print(ConsoleColor.Red, ex.Message);
-            }
-
-        }
-        public void GetEmployee()
-        {
-            try
-            {
-                Extension.Print(ConsoleColor.Yellow, "Xaish edirik id qeyd edin");
-                int id = int.Parse(Console.ReadLine());
-                serviceEmployee.GetEmployee(id);
-
-            }
-            catch (Exception ex)
-            {
-                Extension.Print(ConsoleColor.Red, ex.Message);
-            }
-
-
-        }
-        public void UpdateWork()
-        {
-            try
-            {
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
-                int id = int.Parse(Console.ReadLine());
-                Extension.Print(ConsoleColor.Yellow, "Xaish edirik  Ish yerinin Name yazin");
-                string newAdress = Console.ReadLine();
-
-                serviceEmployee.UpdateWork(id, newAdress.ToLower());
-            }
-            catch (Exception ex)
-            {
-                Extension.Print(ConsoleColor.Red, ex.Message);
-            }
-
-
-
-        }
-        public void UpdatePosition()
-        {
-            try
-            {
-                Extension.Print(ConsoleColor.Yellow, "Xaish edirik id qeyd edin");
-                int id = int.Parse(Console.ReadLine());
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
+                Extension.Print(ConsoleColor.Yellow, "Age qeyd edin");
+                int age = MyExtension.CheckIntAge();
+                Extension.Print(ConsoleColor.Yellow, "ish tecrubesin qeyd edin");
+                int ex = MyExtension.CheckInt();
+                Extension.Print(ConsoleColor.Yellow, "Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
                 string pos = null;
-                int position = int.Parse(Console.ReadLine());
+                int position = MyExtension.CheckInt();
                 if (position == 1)
                 {
                     pos = "ofisiant";
@@ -219,31 +50,133 @@ namespace MyConsoleApp.Controllers
                 {
                     pos = "muhafizeci";
                 }
-                serviceEmployee.UpdatePosition(pos, id);
+                Extension.Print(ConsoleColor.Yellow, "Salary qeyd edin");
+                int salary = MyExtension.CheckInt();
+                Employee employee = new Employee()
+                {
+                    Name = name.ToLower(),
+                    Surname = surname.ToLower(),
+                    Age = age,
+                    Experience = ex,
+                    Position = pos,
+                    Salary = salary
+
+                };
+
+                if (serviceEmployee.Create(employee) != null)
+                {
+
+                    Extension.Print(ConsoleColor.Green, $"Id:{employee.Id}\nName:{employee.Name}\n" +
+                                             $"Surname:{employee.Surname}\n" +
+                                             $"Age:{employee.Age}\n" +
+                                             $"Experience:{employee.Experience}-il\n" +
+                                             $"Position:{employee.Position}\n" +
+                                             $"Salary:{employee.Salary} azn\n" +
+                                             $"qeyd olundu");
+                }
+                else
+                {
+                    Program.CreateEmployee();
+                }
             }
-            catch (Exception ex)
+        }
+        public void Delete()
+        {
+
+            Extension.Print(ConsoleColor.Yellow, "id qeyd edin");
+            int id = MyExtension.CheckInt();
+            serviceEmployee.Delete(id);
+        }
+        public void GetAll()
+        {
+            foreach (var item in serviceEmployee.GetAll())
             {
-                Extension.Print(ConsoleColor.Red, ex.Message);
+                Extension.Print(ConsoleColor.Green, $"Id:{item.Id}\nName:{item.Name}\n" +
+                                               $"Surname:{item.Surname}\n" +
+                                               $"Age:{item.Age}\n" +
+                                               $"Position:{item.Position}\n" +
+                                               $"Salary:{item.Salary} azn\n" +
+                                               $"Experience:{item.Experience}-il\n" +
+                                               $"Work:{item.RestaurantName}");
+                Console.WriteLine();
+                Console.WriteLine();
             }
 
+        }
+        public void GetAllEmployeeByRestName()
+        {
+
+            Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin");
+            string restName = MyExtension.CheckNull();
+            foreach (var item in serviceEmployee.GetAllEmployeeByRestName(restName))
+            {
+                Extension.Print(ConsoleColor.Green, $"Id:{item.Id}\nName:{item.Name}\n" +
+                                                   $"Surname:{item.Surname}\n" +
+                                                   $"Age:{item.Age}\n" +
+                                                   $"Position:{item.Position}\n" +
+                                                   $"Salary:{item.Salary} azn\n" +
+                                                   $"Qeyd olduqu tarix:{item.dateTime}\n" +
+                                                   $"Experience:{item.Experience}-il\n" +
+                                                   $"Work:{item.RestaurantName}");
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+        }
+        public void GetEmployee()
+        {
+
+            Extension.Print(ConsoleColor.Yellow, "id qeyd edin");
+            int id = MyExtension.CheckInt();
+            serviceEmployee.GetEmployee(id);
+
+        }
+        public void UpdateWork()
+        {
+
+            Extension.Print(ConsoleColor.Yellow, "id qeyd edin");
+            int id = MyExtension.CheckInt();
+            Extension.Print(ConsoleColor.Yellow, "Ish yerinin Name yazin");
+            string newAdress = MyExtension.CheckNull();
+
+            serviceEmployee.UpdateWork(id, newAdress.ToLower());
+
+        }
+        public void UpdatePosition()
+        {
+            Extension.Print(ConsoleColor.Yellow, "id qeyd edin");
+            int id = MyExtension.CheckInt();
+            Extension.Print(ConsoleColor.Yellow, "Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
+            string pos = null;
+            int position = MyExtension.CheckInt();
+            if (position == 1)
+            {
+                pos = "ofisiant";
+            }
+            else if (position == 2)
+            {
+                pos = "ashbaz";
+            }
+            else if (position == 3)
+            {
+                pos = "barmen";
+            }
+            else if (position == 4)
+            {
+                pos = "muhafizeci";
+            }
+            serviceEmployee.UpdatePosition(pos, id);
 
         }
         public void UpdateSalary()
         {
-            try
-            {
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
-                int id = int.Parse(Console.ReadLine());
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Yeni Mashi  qeyd edin");
-                int salary = int.Parse(Console.ReadLine());
-                serviceEmployee.UpdateSalary(salary, id);
-            }
-            catch (Exception ex)
-            {
-                Extension.Print(ConsoleColor.Red, ex.Message);
-            }
+
+            Extension.Print(ConsoleColor.Yellow, "id qeyd edin");
+            int id = MyExtension.CheckInt();
+            Extension.Print(ConsoleColor.Yellow, "Yeni Mashi  qeyd edin");
+            int salary = MyExtension.CheckInt();
+            serviceEmployee.UpdateSalary(salary, id);
 
         }
-       
+
     }
 }

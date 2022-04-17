@@ -15,7 +15,7 @@ namespace Business.Service
         ClientRepository _clientRepository = new ClientRepository();
         public Client Creat(Client client)
         {
-          
+
             Count++;
             client.Id = Count;
             _clientRepository.Create(client);
@@ -26,7 +26,7 @@ namespace Business.Service
         public bool DeleteByName(string name)
         {
             Client clientDelt = _clientRepository.GetOne(c => c.Name == name);
-            if(clientDelt != null)
+            if (clientDelt != null)
             {
                 _clientRepository.Delete(clientDelt);
                 Extension.Print(ConsoleColor.Red, "Ugurla Silindi");
@@ -37,8 +37,8 @@ namespace Business.Service
                 Extension.Print(ConsoleColor.Red, "Cox Tessufki bele bir adli muwteri tapilmadi");
                 return false;
             }
-         
-            
+
+
         }
 
         public Client UpdateMoney(int id, int money)

@@ -3,7 +3,6 @@ using DataAccess.Repositoriyes;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
-using Utilities.Extension;
 using Utilities.Helper;
 
 namespace Business.Service
@@ -18,18 +17,10 @@ namespace Business.Service
         public Restaurant Creat(Restaurant restaurant)
         {
 
-            if (restaurant.Name.CheckCreate(restaurant.Name))
-            {
-                if (restaurant.Adress.CheckAdress(restaurant.Adress))
-                {
-                    Count++;
-                    restaurant.Id = Count;
-                    _restaurantRepository.Create(restaurant);
-                    return restaurant;
-                }
-            }
-
-            return null;
+            Count++;
+            restaurant.Id = Count;
+            _restaurantRepository.Create(restaurant);
+            return restaurant;
 
         }
 
@@ -70,6 +61,9 @@ namespace Business.Service
             }
             else
             {
+                Extension.Print(ConsoleColor.Green, $"Id:{restaurant.Id}\nName:{restaurant.Name}\n" +
+                                     $"Adress:{restaurant.Adress}\n" +
+                                     $"update olundu");
                 return restaurant;
             }
         }
@@ -84,6 +78,7 @@ namespace Business.Service
             }
             else
             {
+                
                 return restaurants;
             }
         }
@@ -110,6 +105,10 @@ namespace Business.Service
         public Restaurant UpdateName(int id, string name = null)
         {
             Restaurant restName = _restaurantRepository.GetOne(r => r.Id == id);
+            EmployeeRepository _employeeRepository = new EmployeeRepository();
+            TableRepository _tableRepository = new TableRepository();
+            List<Table> tables = _tableRepository.GetAll(t=>restName.Name == t.RestaurantNameTable);
+            List<Employee>employees =  _employeeRepository.GetAll(e => restName.Name == e.RestaurantName);
 
             if (restName == null)
             {
@@ -118,6 +117,14 @@ namespace Business.Service
             }
             else
             {
+                foreach (var item in tables)
+                {
+                    item.RestaurantNameTable = name;
+                }
+                foreach (var item in employees)
+                {
+                    item.RestaurantName = name;
+                }
                 restName.Name = name;
                 Extension.Print(ConsoleColor.Green, $"Id:{restName.Id}\nName:{restName.Name}\n" +
                                              $"Adress:{restName.Adress}\n" +

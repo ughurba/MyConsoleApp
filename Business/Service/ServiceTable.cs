@@ -18,19 +18,10 @@ namespace Business.Service
             Restaurant res = restaurantRepository.GetOne(r => table.RestaurantNameTable == r.Name);
             if (res != null)
             {
-
-                if (table.TableNo.Length >= 3)
-                {
-                    Count++;
-                    table.Id = Count;
-                    _tableRepository.Create(table);
-                    return table;
-                }
-                else
-                {
-                    Extension.Print(ConsoleColor.Red, "Stolun No 3 herifden cox olmalidir");
-                    return null;
-                }
+                Count++;
+                table.Id = Count;
+                _tableRepository.Create(table);
+                return table;
 
             }
             else
@@ -58,12 +49,25 @@ namespace Business.Service
         public List<Table> GetAllTableByRestName(string restaurantName = null)
         {
             List<Table> tabels = _tableRepository.GetAll(t => t.RestaurantNameTable == restaurantName);
-            return tabels;
+            if(tabels.Count == 0)
+            {
+                Extension.Print(ConsoleColor.Red, "bele Namde restoran tapilmadi");
+                return null;
+            }
+            else
+            {
+                return tabels;
+            }
+           
         }
 
         public Table GetTable(int id)
         {
-            return _tableRepository.GetOne(t => t.Id == id);
+            Table getTable = _tableRepository.GetOne(t => t.Id == id);
+            Extension.Print(ConsoleColor.Green, $"Id:{getTable.Id}\nTableNo:{getTable.TableNo}\nMoney Table:{getTable.MoneyTabel} azn\n" +
+                                       $"Reservition:{getTable.Reservition}\n" +
+                                       $"Ugurla Update olundu");
+            return getTable;
         }
 
         public Table UpdateMoneyTable(int id, int money)

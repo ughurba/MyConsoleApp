@@ -3,7 +3,6 @@ using DataAccess.Repositoriyes;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Utilities.Helper;
 
 namespace Business.Service
@@ -16,19 +15,19 @@ namespace Business.Service
         public Employee Create(Employee employee)
         {
 
-            if (employee.Experience >= 2 && employee.Age >= 18 && employee.Age < 30)
+            if (employee.Experience >= 2)
             {
 
                 Count++;
                 employee.Id = Count;
-                //employee.dateTime = DateTime.Now;
+
                 _employeeRepository.Create(employee);
-                
+
                 return employee;
             }
             else
             {
-                Extension.Print(ConsoleColor.Red, "Iw tecrubesi 2 ilden cox ve yawida 18-30 arasi olmalidir");
+                Extension.Print(ConsoleColor.Red, "Iw tecrubesi 2 ilden cox  olmalidir");
                 return null;
             }
 
@@ -94,8 +93,8 @@ namespace Business.Service
             }
             else
             {
-               
-               
+
+
                 Extension.Print(ConsoleColor.Green, $"Id:{empId.Id}\nName:{empId.Name}\n" +
                                               $"Surname:{empId.Surname}\n" +
                                               $"Age:{empId.Age}\n" +
@@ -170,12 +169,19 @@ namespace Business.Service
 
         }
 
-
-
         public List<Employee> GetAllEmployeePosition(string restName, string position)
         {
             List<Employee> empList = _employeeRepository.GetAll(e => e.Position == position && e.RestaurantName == restName);
-            return empList;
+            if(empList.Count == 0)
+            {
+                Extension.Print(ConsoleColor.Red, "Bu positionda iwci yoxdur!");
+                return null;
+            }
+            else
+            {
+                return empList;
+            }
+         
 
         }
         public bool DeleteByName(string name)

@@ -2,9 +2,6 @@
 using Entities.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Repositoriyes
 {
@@ -25,7 +22,7 @@ namespace DataAccess.Repositoriyes
 
         public bool Delete(Client entity)
         {
-           DataContext.clients.Remove(entity);
+            DataContext.clients.Remove(entity);
             return true;
         }
 
@@ -50,22 +47,10 @@ namespace DataAccess.Repositoriyes
 
         public Client GetOne(Predicate<Client> filter = null)
         {
-            return filter == null? DataContext.clients[0] :
+            return filter == null ? DataContext.clients[0] :
                 DataContext.clients.Find(filter);
         }
 
-        //public bool Update(Client entity)
-        //{
-        //    if (entity == null)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        Client UpClient = GetOne(cl => cl.Id == entity.Id);
-        //        UpClient = entity;
-        //        return true;
-        //    }
-        //}
+
     }
 }

@@ -16,45 +16,31 @@ namespace MyConsoleApp.Controllers
         }
         public void Creat()
         {
-            try
+
+            Extension.Print(ConsoleColor.Yellow, "Xaiw edirik nece Restaurant acmaq istediyiniz qeyd edin");
+            int size = MyExtension.CheckInt();
+            for (int i = 0; i < size; i++)
             {
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik nece Restaurant acmaq istediyiniz qeyd edin");
-                int size = int.Parse(Console.ReadLine());
-                for (int i = 0; i < size; i++)
+
+                Extension.Print(ConsoleColor.Yellow, "Restaurant Name qeyd edin");
+                string name = MyExtension.CheckCreate();
+                Extension.Print(ConsoleColor.Yellow, "Restaurant Adress-in qeyd edin");
+                string adress = MyExtension.CheckAdress();
+
+
+                Restaurant restaurant = new Restaurant()
                 {
+                    Name = name.ToLower(),
+                    Adress = adress.ToLower(),
+                };
 
-                    Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin");
-                    string name = Console.ReadLine();
-                    Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Adress-in qeyd edin");
-                    string adress = Console.ReadLine();
+                if (serviceRestaurant.Creat(restaurant) != null)
+                {
+                    Extension.Print(ConsoleColor.Green, $"Id:{restaurant.Id}\nName:{restaurant.Name}\n" +
+                                             $"Adress:{restaurant.Adress}\n" +
+                                             $"acildi");
 
-
-                    Restaurant restaurant = new Restaurant()
-                    {
-                        Name = name.ToLower(),
-                        Adress = adress.ToLower(),
-                    };
-
-                    if (serviceRestaurant.Creat(restaurant) != null)
-                    {
-                        Extension.Print(ConsoleColor.Green, $"Id:{restaurant.Id}\nName:{restaurant.Name}\n" +
-                                                 $"Adress:{restaurant.Adress}\n" +
-                                                 $"acildi");
-
-                    }
-                    else
-                    {
-                        Program.CreateRestaurant();
-                    }
                 }
-
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Program.CreateRestaurant();
-
 
             }
 
@@ -63,60 +49,26 @@ namespace MyConsoleApp.Controllers
 
         public void UpdateByName()
         {
-            try
-            {
-            EnterName:
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Id qeyd edin,");
-                int id = int.Parse(Console.ReadLine());
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Yeni Restaurant Name qeyd edin");
-                string newName = Console.ReadLine();
+
+            Extension.Print(ConsoleColor.Yellow, "Id qeyd edin,");
+            int id = MyExtension.CheckInt();
+            Extension.Print(ConsoleColor.Yellow, "Yeni Restaurant Name qeyd edin");
+            string newName = MyExtension.CheckCreate();
 
 
-                if (newName.CheckCreate(newName))
-                {
-                    serviceRestaurant.UpdateName(id, newName.ToLower());
-                }
-                else
-                {
-                    goto EnterName;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-
-
+            serviceRestaurant.UpdateName(id, newName.ToLower());
 
         }
         public void UpdateAdress()
         {
-            try
-            {
-            EnterName:
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Id qeyd edin,");
-                int id = int.Parse(Console.ReadLine());
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Yeni Restaurant Adress qeyd edin");
-                string newAdress = Console.ReadLine();
 
+            Extension.Print(ConsoleColor.Yellow, "Id qeyd edin,");
+            int id = MyExtension.CheckInt();
+            Extension.Print(ConsoleColor.Yellow, "Yeni Restaurant Adress qeyd edin");
+            string newAdress = MyExtension.CheckAdress();
 
-                if (newAdress.CheckAdress(newAdress))
-                {
-                    serviceRestaurant.UpdateAdress(id, newAdress.ToLower());
+            serviceRestaurant.UpdateAdress(id, newAdress.ToLower());
 
-                }
-                else
-                {
-                    goto EnterName;
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
         }
         public void GetAll()
         {
@@ -129,63 +81,41 @@ namespace MyConsoleApp.Controllers
         }
         public void Delete()
         {
-            try
-            {
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Id qeyd edin,");
-                int id = int.Parse(Console.ReadLine());
-                serviceRestaurant.Delete(id);
 
+            Extension.Print(ConsoleColor.Yellow, "Id qeyd edin,");
+            int id = MyExtension.CheckInt();
+            serviceRestaurant.Delete(id);
 
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
         }
         public void GetRestaurantByName()
         {
-            try
-            {
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin,");
-                string name = Console.ReadLine();
 
-                foreach (var item in serviceRestaurant.GetRestaurantByName(name.ToLower()))
-                {
-                    Extension.Print(ConsoleColor.Cyan, $"Id:{item.Id}\nName:{item.Name}\n" +
-                                              $"Adress:{item.Adress}\n");
-                }
+            Extension.Print(ConsoleColor.Yellow, "Restaurant Name qeyd edin,");
+            string name = MyExtension.CheckCreate();
 
-            }
-            catch (Exception ex)
+            foreach (var item in serviceRestaurant.GetRestaurantByName(name.ToLower()))
             {
-                Console.WriteLine(ex.Message);
+                Extension.Print(ConsoleColor.Cyan, $"Id:{item.Id}\nName:{item.Name}\n" +
+                                          $"Adress:{item.Adress}\n");
             }
 
         }
         public void GetRestaurantById()
         {
-            try
-            {
 
-                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Id qeyd edin,");
-                int id = int.Parse((Console.ReadLine()));
-                Extension.Print(ConsoleColor.Green, serviceRestaurant.GetRestaurant(id).Name);
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            Extension.Print(ConsoleColor.Yellow, "Restaurant Id qeyd edin,");
+            int id = MyExtension.CheckInt();
+            serviceRestaurant.GetRestaurant(id);
 
         }
         public void GetAllEmpPositionByRestName()
         {
             ServiceEmployee serviceEmployee = new ServiceEmployee();
             Extension.Print(ConsoleColor.Yellow, "Restaurant name qeyd edin,");
-            string restName = Console.ReadLine();
-            Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
+            string restName = MyExtension.CheckCreate();
+            Extension.Print(ConsoleColor.Yellow, "Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
             string pos = null;
-            int position = int.Parse(Console.ReadLine());
+            int position = MyExtension.CheckInt();
             if (position == 1)
             {
                 pos = "ofisiant";
@@ -210,7 +140,7 @@ namespace MyConsoleApp.Controllers
                                                         $"Age:{item.Age}\n" +
                                                         $"Position:{item.Position}\n" +
                                                         $"Salary:{item.Salary} azn\n" +
-                                                        $"Data:{item.dateTime}\n" +
+                                                        $"Qeyd olduqu tarix:{item.dateTime}\n" +
                                                         $"Experience:{item.Experience}-il\n" +
                                                         $"Work:{item.RestaurantName}");
             }

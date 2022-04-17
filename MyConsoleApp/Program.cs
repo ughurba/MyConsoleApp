@@ -1,6 +1,5 @@
 ﻿using MyConsoleApp.Controllers;
 using System;
-using System.Text;
 using Utilities.Helper;
 
 namespace MyConsoleApp
@@ -11,7 +10,7 @@ namespace MyConsoleApp
 
         static void Main(string[] args)
         {
-          
+
             Extension.Print(ConsoleColor.Green, "WELCOME TO OUR RESTAURANT");
             CreateRestaurant();
             CreateTable();
@@ -25,6 +24,7 @@ namespace MyConsoleApp
         }
         public static void Menu()
         {
+            Console.Clear();
             Menu menu = new Menu();
         EnterName:
             try

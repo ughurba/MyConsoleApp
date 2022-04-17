@@ -2,9 +2,6 @@
 using Entities.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Repositoriyes
 {
@@ -54,18 +51,6 @@ namespace DataAccess.Repositoriyes
                 DataContext.tables.Find(filter);
         }
 
-        //public bool Update(Table entity)
-        //{
-        //    if (entity == null)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        Table UpTable = GetOne(cl => cl.TableNo == entity.TableNo);
-        //        UpTable = entity;
-        //        return true;
-        //    }
-        //}
+
     }
 }
