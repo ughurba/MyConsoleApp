@@ -25,9 +25,19 @@ namespace Business.Service
         public bool DeleteByName(string name)
         {
             Client clientDelt = _clientRepository.GetOne(c => c.Name == name);
-
-            _clientRepository.Delete(clientDelt);
-            return true;
+            if(clientDelt != null)
+            {
+                _clientRepository.Delete(clientDelt);
+                Extension.Print(ConsoleColor.Red, "Ugurla Silindi");
+                return true;
+            }
+            else
+            {
+                Extension.Print(ConsoleColor.Red, "Cox Tessufki bele bir adli muwteri tapilmadi");
+                return false;
+            }
+         
+            
         }
 
         public Client UpdateMoney(int id, int money)
