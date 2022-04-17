@@ -70,7 +70,7 @@ namespace Business.Service
         {
             Table upTabelMoney = _tableRepository.GetOne(t => t.Id == id);
             upTabelMoney.MoneyTabel = money;
-            Extension.Print(ConsoleColor.Green, $"Id:{upTabelMoney.Id}\nTableNo:{upTabelMoney.TableNo}\nMoney Table:{upTabelMoney.MoneyTabel}\n" +
+            Extension.Print(ConsoleColor.Green, $"Id:{upTabelMoney.Id}\nTableNo:{upTabelMoney.TableNo}\nMoney Table:{upTabelMoney.MoneyTabel} azn\n" +
                                          $"Reservition:{upTabelMoney.Reservition}\n" +
                                          $"Ugurla Update olundu");
             return upTabelMoney;
@@ -80,7 +80,7 @@ namespace Business.Service
         {
             Table upTableNo = _tableRepository.GetOne(t => t.Id == id);
             upTableNo.TableNo = tableNo;
-            Extension.Print(ConsoleColor.Green, $"Id:{upTableNo.Id}\nTableNo:{upTableNo.TableNo}\nMoney Table:{upTableNo.MoneyTabel}\n" +
+            Extension.Print(ConsoleColor.Green, $"Id:{upTableNo.Id}\nTableNo:{upTableNo.TableNo}\nMoney Table:{upTableNo.MoneyTabel} azn\n" +
                                             $"Reservition:{upTableNo.Reservition}\n" +
                                             $"Ugurla Update olundu");
             return upTableNo;

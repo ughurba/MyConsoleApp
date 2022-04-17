@@ -66,7 +66,7 @@ namespace Business.Service
                     }
                     else
                     {
-                        Extension.Print(ConsoleColor.Red, $"bu wexsin pulu catmir bu stolu zakaz etmeye , bu stolun qiymeti {table.MoneyTabel}");
+                        Extension.Print(ConsoleColor.Red, $"bu wexsin pulu catmir bu stolu zakaz etmeye , bu stolun qiymeti {table.MoneyTabel} azn");
                         return null;
                     }
                 }
