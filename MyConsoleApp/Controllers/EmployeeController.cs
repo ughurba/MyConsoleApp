@@ -121,7 +121,6 @@ namespace MyConsoleApp.Controllers
                                                    $"Age:{item.Age}\n" +
                                                    $"Position:{item.Position}\n" +
                                                    $"Salary:{item.Salary} azn\n" +
-                                                   $"Data:{item.dateTime}\n" +
                                                    $"Experience:{item.Experience}-il\n" +
                                                    $"Work:{item.RestaurantName}");
                     Console.WriteLine();
@@ -147,7 +146,7 @@ namespace MyConsoleApp.Controllers
                                                        $"Age:{item.Age}\n" +
                                                        $"Position:{item.Position}\n" +
                                                        $"Salary:{item.Salary} azn\n" +
-                                                       $"Data:{item.dateTime}\n" +
+                                                       $"Qeyd olduqu tarix:{item.dateTime}\n" +
                                                        $"Experience:{item.Experience}-il\n" +
                                                        $"Work:{item.RestaurantName}");
                     Console.WriteLine();
@@ -182,7 +181,7 @@ namespace MyConsoleApp.Controllers
             {
                 Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
-                Extension.Print(ConsoleColor.Yellow, "Xaish edirik yeni Ish yerinin Name yazin");
+                Extension.Print(ConsoleColor.Yellow, "Xaish edirik  Ish yerinin Name yazin");
                 string newAdress = Console.ReadLine();
 
                 serviceEmployee.UpdateWork(id, newAdress.ToLower());
@@ -245,20 +244,6 @@ namespace MyConsoleApp.Controllers
             }
 
         }
-        //public void DeleteByName()
-        //{
-        //    try
-        //    {
-        //        PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Name qeyd edin");
-        //        string name = Console.ReadLine();
-
-        //        serviceEmployee.DeleteByName(name.ToLower());
-
-        //    }catch(Exception ex)
-        //    {
-        //        PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
-        //    }
-
-        //}
+       
     }
 }

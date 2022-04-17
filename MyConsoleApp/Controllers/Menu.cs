@@ -75,7 +75,7 @@ namespace MyConsoleApp.Controllers
                     employeeController.GetEmployee();
                     break;
                 case (int)Extension.MenuEmployee.UpdateWork:
-                    employeeController.UpdatePlaceOfWork();
+                    employeeController.UpdateWork();
                     break;
                 case (int)Extension.MenuEmployee.UpdatePosition:
                     employeeController.UpdatePosition();

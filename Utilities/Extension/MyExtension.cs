@@ -93,12 +93,27 @@ namespace Utilities.Extension
             }
             else
             {
-                Helper.Extension.Print(ConsoleColor.Red, "Restoran acilmadi\n1)Restaurant adress minimum 4 herif olmalidi\n" +
+                 Helper.Extension.Print(ConsoleColor.Red, "Restoran acilmadi\n1)Restaurant adress minimum 4 herif olmalidi\n" +
                     "2)Icinde number olmalidir\n" +
                     "3)Bowluq olmalidi !!!\n");
                 
                 return false;
             }
+        }
+        public static bool CheckName(this string chek,string name)
+        {
+            for (int i = 0; i < name.Length; i++)
+            {
+                if (char.IsNumber(name[i]))
+                {
+                    Helper.Extension.Print(ConsoleColor.Red, "Name-de reqem ola bilmez!!!");
+               
+                    return false;
+                }
+              
+            }
+            return true;
+
         }
 
     }

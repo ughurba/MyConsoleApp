@@ -82,7 +82,7 @@ namespace MyConsoleApp.Controllers
             foreach (var item in serviceTable.GetAll())
             {
 
-                Extension.Print(ConsoleColor.Green, $"Id:{item.Id}\nTableNo:{item.TableNo}\nMoney Table:{item.MoneyTabel}\n" +
+                Extension.Print(ConsoleColor.Green, $"Id:{item.Id}\nTableNo:{item.TableNo}\nMoney Table:{item.MoneyTabel} azn\n" +
                                             $"Reservition:{item.Reservition}\n");
 
             }

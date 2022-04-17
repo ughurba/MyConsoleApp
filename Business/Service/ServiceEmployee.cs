@@ -21,9 +21,9 @@ namespace Business.Service
 
                 Count++;
                 employee.Id = Count;
-                employee.dateTime = DateTime.Now;
+                //employee.dateTime = DateTime.Now;
                 _employeeRepository.Create(employee);
-                ;
+                
                 return employee;
             }
             else
@@ -94,7 +94,7 @@ namespace Business.Service
             }
             else
             {
-                StringBuilder stringBuilder = new StringBuilder();
+               
                
                 Extension.Print(ConsoleColor.Green, $"Id:{empId.Id}\nName:{empId.Name}\n" +
                                               $"Surname:{empId.Surname}\n" +
@@ -119,7 +119,15 @@ namespace Business.Service
             else
             {
                 empAdress.RestaurantName = adress;
-                Extension.Print(ConsoleColor.Green, "Ugurla update olundu");
+                empAdress.dateTime = DateTime.Now;
+                Extension.Print(ConsoleColor.Green, $"Id:{empAdress.Id}\nName:{empAdress.Name}\n" +
+                                             $"Surname:{empAdress.Surname}\n" +
+                                             $"Age:{empAdress.Age}\n" +
+                                             $"Experience:{empAdress.Experience}-il\n" +
+                                             $"Position:{empAdress.Position}\n" +
+                                             $"Salary:{empAdress.Salary} azn\n" +
+                                             $"Qeyd olduqu tarix:{empAdress.dateTime}");
+                Extension.Print(ConsoleColor.Green, "Ishe qebul olundu");
                 return empAdress;
             }
 

@@ -15,6 +15,7 @@ namespace Business.Service
         ClientRepository _clientRepository = new ClientRepository();
         public Client Creat(Client client)
         {
+          
             Count++;
             client.Id = Count;
             _clientRepository.Create(client);
