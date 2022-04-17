@@ -1,10 +1,6 @@
 ﻿using Business.Service;
 using Entities.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilities.Helper;
 
 namespace MyConsoleApp.Controllers
@@ -21,25 +17,25 @@ namespace MyConsoleApp.Controllers
             try
             {
 
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece iwci goturmek isdediyinizi qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik nece iwci goturmek isdediyinizi qeyd edin");
                 int size = int.Parse(Console.ReadLine());
                 for (int i = 0; i < size; i++)
                 {
 
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "ishcinin Name qeyd edin");
+                    Extension.Print(ConsoleColor.Yellow, "ishcinin Name qeyd edin");
                     string name = Console.ReadLine();
-                  
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "Surname qeyd edin");
+
+                    Extension.Print(ConsoleColor.Yellow, "Surname qeyd edin");
                     string surname = Console.ReadLine();
-              
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "Iwcinin yawin qeyd edin");
+
+                    Extension.Print(ConsoleColor.Yellow, "Iwcinin yawin qeyd edin");
                     int age = int.Parse(Console.ReadLine());
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik ish tecrubesin qeyd edin");
+                    Extension.Print(ConsoleColor.Yellow, "Xaiw edirik ish tecrubesin qeyd edin");
                     int ex = int.Parse(Console.ReadLine());
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
+                    Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
                     string pos = null;
                     int position = int.Parse(Console.ReadLine());
-                    if(position == 1)
+                    if (position == 1)
                     {
                         pos = "ofisiant";
                     }
@@ -47,14 +43,15 @@ namespace MyConsoleApp.Controllers
                     {
                         pos = "ashbaz";
                     }
-                    else if(position == 3)
+                    else if (position == 3)
                     {
                         pos = "barmen";
-                    }else if(position == 4)
+                    }
+                    else if (position == 4)
                     {
                         pos = "muhafizeci";
                     }
-                    PrintAndEnum.Print(ConsoleColor.Yellow, " Salary  qeyd edin");
+                    Extension.Print(ConsoleColor.Yellow, " Salary  qeyd edin");
                     int salary = int.Parse(Console.ReadLine());
                     Employee employee = new Employee()
                     {
@@ -64,12 +61,12 @@ namespace MyConsoleApp.Controllers
                         Experience = ex,
                         Position = pos,
                         Salary = salary
-                        
+
                     };
 
                     if (serviceEmployee.Create(employee) != null)
                     {
-                        PrintAndEnum.Print(ConsoleColor.Green, $"Id:{employee.Id}\nName:{employee.Name}\n" +
+                        Extension.Print(ConsoleColor.Green, $"Id:{employee.Id}\nName:{employee.Name}\n" +
                                                  $"Surname:{employee.Surname}\n" +
                                                  $"Age:{employee.Age}\n" +
                                                  $"Experience:{employee.Experience}-il\n" +
@@ -98,15 +95,16 @@ namespace MyConsoleApp.Controllers
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
                 serviceEmployee.Delete(id);
 
-            }catch (Exception ex)
-            {
-                PrintAndEnum.Print(ConsoleColor.Red,ex.Message);
             }
-           
+            catch (Exception ex)
+            {
+                Extension.Print(ConsoleColor.Red, ex.Message);
+            }
+
 
         }
         public void GetAll()
@@ -116,7 +114,7 @@ namespace MyConsoleApp.Controllers
 
                 foreach (var item in serviceEmployee.GetAll())
                 {
-                    PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nName:{item.Name}\n" +
+                    Extension.Print(ConsoleColor.Green, $"Id:{item.Id}\nName:{item.Name}\n" +
                                                    $"Surname:{item.Surname}\n" +
                                                    $"Age:{item.Age}\n" +
                                                    $"Position:{item.Position}\n" +
@@ -138,11 +136,11 @@ namespace MyConsoleApp.Controllers
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant name qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant name qeyd edin");
                 string restName = Console.ReadLine();
                 foreach (var item in serviceEmployee.GetAllEmployeeByRestName(restName))
                 {
-                    PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nName:{item.Name}\n" +
+                    Extension.Print(ConsoleColor.Green,$"Id:{item.Id}\nName:{item.Name}\n" +
                                                        $"Surname:{item.Surname}\n" +
                                                        $"Age:{item.Age}\n" +
                                                        $"Position:{item.Position}\n" +
@@ -153,43 +151,45 @@ namespace MyConsoleApp.Controllers
                     Console.WriteLine();
                     Console.WriteLine();
                 }
-            }catch (Exception ex)
-            {
-                PrintAndEnum.Print(ConsoleColor.Red,ex.Message);
             }
-        
+            catch (Exception ex)
+            {
+                Extension.Print(ConsoleColor.Red, ex.Message);
+            }
+
         }
         public void GetEmployee()
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik id qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaish edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
                 serviceEmployee.GetEmployee(id);
 
             }
             catch (Exception ex)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
+                Extension.Print(ConsoleColor.Red, ex.Message);
             }
-         
+
 
         }
         public void UpdatePlaceOfWork()
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik yeni Ish yerinin Name yazin");
+                Extension.Print(ConsoleColor.Yellow, "Xaish edirik yeni Ish yerinin Name yazin");
                 string newAdress = Console.ReadLine();
-              
+
                 serviceEmployee.UpdatePlaceOfWork(id, newAdress.ToLower());
-            }catch (Exception ex)
-            {
-                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
             }
-       
+            catch (Exception ex)
+            {
+                Extension.Print(ConsoleColor.Red, ex.Message);
+            }
+
 
 
         }
@@ -197,9 +197,9 @@ namespace MyConsoleApp.Controllers
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaish edirik id qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaish edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
                 string pos = null;
                 int position = int.Parse(Console.ReadLine());
                 if (position == 1)
@@ -219,27 +219,29 @@ namespace MyConsoleApp.Controllers
                     pos = "muhafizeci";
                 }
                 serviceEmployee.UpdatePosition(pos, id);
-            }catch(Exception ex)
-            {
-                PrintAndEnum.Print(ConsoleColor.Red,ex.Message);
             }
-      
+            catch (Exception ex)
+            {
+                Extension.Print(ConsoleColor.Red, ex.Message);
+            }
+
 
         }
         public void UpdateSalary()
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Yeni Mashi  qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Yeni Mashi  qeyd edin");
                 int salary = int.Parse(Console.ReadLine());
                 serviceEmployee.UpdateSalary(salary, id);
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
-            }  
-          
+                Extension.Print(ConsoleColor.Red, ex.Message);
+            }
+
         }
         //public void DeleteByName()
         //{
@@ -247,14 +249,14 @@ namespace MyConsoleApp.Controllers
         //    {
         //        PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Name qeyd edin");
         //        string name = Console.ReadLine();
-             
+
         //        serviceEmployee.DeleteByName(name.ToLower());
 
         //    }catch(Exception ex)
         //    {
         //        PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
         //    }
-           
+
         //}
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Utilities.Helper
 {
-    public class PrintAndEnum
+    public class Extension
     {
         public static void Print(ConsoleColor color, string message)
         {

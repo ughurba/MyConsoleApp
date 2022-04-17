@@ -12,7 +12,7 @@ namespace Business.Service
     {
 
         public static int Count { get; set; }
-       
+
         ServiceEmployee serviceEmployee = new ServiceEmployee();
         RestaurantRepository _restaurantRepository = new RestaurantRepository();
         public Restaurant Creat(Restaurant restaurant)
@@ -28,20 +28,20 @@ namespace Business.Service
                     return restaurant;
                 }
             }
-           
+
             return null;
 
         }
 
         public Restaurant Delete(int id)
         {
-           
+
             Restaurant restaurantDelete = _restaurantRepository.GetOne(r => r.Id == id);
-            
-           
+
+
             if (restaurantDelete == null)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li restoran yoxdur");
+                Extension.Print(ConsoleColor.Red, "Bele id-li restoran yoxdur");
                 return null;
             }
             else
@@ -58,14 +58,14 @@ namespace Business.Service
             return _restaurantRepository.GetAll();
         }
 
-       
+
 
         public Restaurant GetRestaurant(int id)
         {
             Restaurant restaurant = _restaurantRepository.GetOne(r => r.Id == id);
             if (restaurant == null)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li restoran yoxdur");
+                Extension.Print(ConsoleColor.Red, "Bele id-li restoran yoxdur");
                 return null;
             }
             else
@@ -79,7 +79,7 @@ namespace Business.Service
             List<Restaurant> restaurants = _restaurantRepository.GetAll(r => r.Name == name);
             if (restaurants.Count == 0)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele adli restoran yoxdur");
+                Extension.Print(ConsoleColor.Red, "Bele adli restoran yoxdur");
                 return null;
             }
             else
@@ -94,13 +94,13 @@ namespace Business.Service
 
             if (restAdress == null)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li restoran tapilmadi");
+                Extension.Print(ConsoleColor.Red, "Bele id-li restoran tapilmadi");
                 return null;
             }
             else
             {
                 restAdress.Adress = adress;
-                PrintAndEnum.Print(ConsoleColor.Green, $"Id:{restAdress.Id}\nName:{restAdress.Name}\n" +
+                Extension.Print(ConsoleColor.Green, $"Id:{restAdress.Id}\nName:{restAdress.Name}\n" +
                                        $"Adress:{restAdress.Adress}\n" +
                                        $"update olundu");
                 return restAdress;
@@ -113,13 +113,13 @@ namespace Business.Service
 
             if (restName == null)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li restoran tapilmadi");
+                Extension.Print(ConsoleColor.Red, "Bele id-li restoran tapilmadi");
                 return null;
             }
             else
             {
                 restName.Name = name;
-                PrintAndEnum.Print(ConsoleColor.Green, $"Id:{restName.Id}\nName:{restName.Name}\n" +
+                Extension.Print(ConsoleColor.Green, $"Id:{restName.Id}\nName:{restName.Name}\n" +
                                              $"Adress:{restName.Adress}\n" +
                                              $"update olundu");
                 return restName;

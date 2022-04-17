@@ -18,6 +18,7 @@ namespace Business.Interfaces
         Employee GetEmployee(int id);
         List<Employee> GetAll();
         List<Employee> GetAllEmployeeByRestName(string restaurantName = null);
+        List<Employee> GetAllEmployeePosition(string restName, string position);
 
 
     }

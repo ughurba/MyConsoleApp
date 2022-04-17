@@ -3,9 +3,6 @@ using DataAccess.Repositoriyes;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Utilities.Helper;
 
 namespace Business.Service
@@ -17,9 +14,9 @@ namespace Business.Service
         public static int Count { get; set; }
         public Table Create(Table table)
         {
-          
-           Restaurant res =  restaurantRepository.GetOne(r => table.RestaurantNameTable == r.Name);
-            if(res != null)
+
+            Restaurant res = restaurantRepository.GetOne(r => table.RestaurantNameTable == r.Name);
+            if (res != null)
             {
 
                 if (table.TableNo.Length >= 3)
@@ -31,49 +28,49 @@ namespace Business.Service
                 }
                 else
                 {
-                    PrintAndEnum.Print(ConsoleColor.Red, "Stolun No 3 herifden cox olmalidir");
+                    Extension.Print(ConsoleColor.Red, "Stolun No 3 herifden cox olmalidir");
                     return null;
                 }
 
             }
             else
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele adi restoran yoxdur");
+                Extension.Print(ConsoleColor.Red, "Bele adi restoran yoxdur");
 
                 return null;
             }
-            
+
 
         }
 
         public Table Delete(int id)
         {
-           Table tableDel= _tableRepository.GetOne(t => t.Id == id);
+            Table tableDel = _tableRepository.GetOne(t => t.Id == id);
             _tableRepository.Delete(tableDel);
             return tableDel;
         }
 
         public List<Table> GetAll()
         {
-          return   _tableRepository.GetAll();
+            return _tableRepository.GetAll();
         }
 
         public List<Table> GetAllTableByRestName(string restaurantName = null)
         {
-          List<Table> tabels =  _tableRepository.GetAll(t => t.RestaurantNameTable == restaurantName);
+            List<Table> tabels = _tableRepository.GetAll(t => t.RestaurantNameTable == restaurantName);
             return tabels;
         }
 
         public Table GetTable(int id)
         {
-           return _tableRepository.GetOne(t => t.Id == id);
+            return _tableRepository.GetOne(t => t.Id == id);
         }
 
         public Table UpdateMoneyTable(int id, int money)
         {
             Table upTabelMoney = _tableRepository.GetOne(t => t.Id == id);
             upTabelMoney.MoneyTabel = money;
-            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{upTabelMoney.Id}\nTableNo:{upTabelMoney.TableNo}\nMoney Table:{upTabelMoney.MoneyTabel}\n" +
+            Extension.Print(ConsoleColor.Green, $"Id:{upTabelMoney.Id}\nTableNo:{upTabelMoney.TableNo}\nMoney Table:{upTabelMoney.MoneyTabel}\n" +
                                          $"Reservition:{upTabelMoney.Reservition}\n" +
                                          $"Ugurla Update olundu");
             return upTabelMoney;
@@ -83,7 +80,7 @@ namespace Business.Service
         {
             Table upTableNo = _tableRepository.GetOne(t => t.Id == id);
             upTableNo.TableNo = tableNo;
-            PrintAndEnum.Print(ConsoleColor.Green, $"Id:{upTableNo.Id}\nTableNo:{upTableNo.TableNo}\nMoney Table:{upTableNo.MoneyTabel}\n" +
+            Extension.Print(ConsoleColor.Green, $"Id:{upTableNo.Id}\nTableNo:{upTableNo.TableNo}\nMoney Table:{upTableNo.MoneyTabel}\n" +
                                             $"Reservition:{upTableNo.Reservition}\n" +
                                             $"Ugurla Update olundu");
             return upTableNo;

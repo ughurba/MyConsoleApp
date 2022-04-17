@@ -48,7 +48,7 @@ namespace Utilities.Extension
             }
             else
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Restoran acilmadi\n1)Restaurant name minimum 4 herif olmalidi\n" +
+                Helper.Extension.Print(ConsoleColor.Red, "Restoran acilmadi\n1)Restaurant name minimum 4 herif olmalidi\n" +
                     "2)Icinde number olmali deyil\n" +
                     "3)Bowluq ola bilmez!!!\n");
                 return false;
@@ -93,7 +93,7 @@ namespace Utilities.Extension
             }
             else
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Restoran acilmadi\n1)Restaurant adress minimum 4 herif olmalidi\n" +
+                Helper.Extension.Print(ConsoleColor.Red, "Restoran acilmadi\n1)Restaurant adress minimum 4 herif olmalidi\n" +
                     "2)Icinde number olmalidir\n" +
                     "3)Bowluq olmalidi !!!\n");
                 

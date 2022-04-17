@@ -19,17 +19,17 @@ namespace MyConsoleApp.Controllers
             try
             {
 
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik nece  stol acmaq istediyiniz qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik nece  stol acmaq istediyiniz qeyd edin");
                 int size = int.Parse(Console.ReadLine());
                 for (int i = 0; i < size; i++)
                 {
 
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik stolun nomresin qeyd edin");
+                    Extension.Print(ConsoleColor.Yellow, "Xaiw edirik stolun nomresin qeyd edin");
                     string tableNo = Console.ReadLine();
 
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik stolun qiymetin  qeyd edin");
+                    Extension.Print(ConsoleColor.Yellow, "Xaiw edirik stolun qiymetin  qeyd edin");
                     int moneyTable = int.Parse(Console.ReadLine());
-                    PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Hansi Restauranta gedecek bu stol hemen resotranin Name qeyd edin");
+                    Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Hansi Restauranta gedecek bu stol hemen resotranin Name qeyd edin");
                     string restaurantNameTable = Console.ReadLine();
 
                     Table table = new Table()
@@ -41,7 +41,7 @@ namespace MyConsoleApp.Controllers
 
                     if (serviceTable.Create(table) != null)
                     {
-                        PrintAndEnum.Print(ConsoleColor.Green, $"Id:{table.Id}\nTableNo:{table.TableNo}\nMoney Table:{table.MoneyTabel}\n" +
+                        Extension.Print(ConsoleColor.Green, $"Id:{table.Id}\nTableNo:{table.TableNo}\nMoney Table:{table.MoneyTabel}\n" +
                                                  $"Reservition:{table.Reservition}\n" +
                                                  $"qeyd etiyiniz restorana gonderildi");
                     }
@@ -67,13 +67,13 @@ namespace MyConsoleApp.Controllers
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
                 serviceTable.Delete(id);
             }
             catch (Exception ex)
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, ex.Message);
+                Extension.Print(ConsoleColor.Yellow, ex.Message);
             }
 
         }
@@ -82,9 +82,9 @@ namespace MyConsoleApp.Controllers
             foreach (var item in serviceTable.GetAll())
             {
 
-                PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nTableNo:{item.TableNo}\nMoney Table:{item.MoneyTabel}\n" +
+                Extension.Print(ConsoleColor.Green, $"Id:{item.Id}\nTableNo:{item.TableNo}\nMoney Table:{item.MoneyTabel}\n" +
                                             $"Reservition:{item.Reservition}\n");
-                                            
+
             }
 
         }
@@ -92,15 +92,15 @@ namespace MyConsoleApp.Controllers
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik Restaurant Name qeyd edin");
                 string restName = Console.ReadLine();
 
 
                 foreach (var item in serviceTable.GetAllTableByRestName(restName.ToLower()))
                 {
-                    PrintAndEnum.Print(ConsoleColor.Green, $"Id:{item.Id}\nTableNo:{item.TableNo}\nMoney Table:{item.MoneyTabel}\n" +
+                    Extension.Print(ConsoleColor.Green, $"Id:{item.Id}\nTableNo:{item.TableNo}\nMoney Table:{item.MoneyTabel}\n" +
                                                $"Reservition:{item.Reservition}\n");
-                                               
+
 
                 }
 
@@ -108,7 +108,7 @@ namespace MyConsoleApp.Controllers
             }
             catch (Exception ex)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, ex.Message);
+                Extension.Print(ConsoleColor.Red, ex.Message);
             }
 
 
@@ -117,13 +117,13 @@ namespace MyConsoleApp.Controllers
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
-                PrintAndEnum.Print(ConsoleColor.Green, serviceTable.GetTable(id).TableNo);
+                Extension.Print(ConsoleColor.Green, serviceTable.GetTable(id).TableNo);
             }
             catch (Exception ex)
             {
-                PrintAndEnum.Print(ConsoleColor.Green, ex.Message);
+                Extension.Print(ConsoleColor.Green, ex.Message);
             }
 
 
@@ -132,15 +132,15 @@ namespace MyConsoleApp.Controllers
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik money qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik money qeyd edin");
                 int money = int.Parse(Console.ReadLine());
                 serviceTable.UpdateMoneyTable(id, money);
             }
             catch (Exception ex)
             {
-                PrintAndEnum.Print(ConsoleColor.Green, ex.Message);
+                Extension.Print(ConsoleColor.Green, ex.Message);
             }
 
 
@@ -149,16 +149,16 @@ namespace MyConsoleApp.Controllers
         {
             try
             {
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik id qeyd edin");
                 int id = int.Parse(Console.ReadLine());
-                PrintAndEnum.Print(ConsoleColor.Yellow, "Xaiw edirik new Table No qeyd edin");
+                Extension.Print(ConsoleColor.Yellow, "Xaiw edirik new Table No qeyd edin");
                 string newTableNo = Console.ReadLine();
 
                 serviceTable.UpdateTableNo(id, newTableNo.ToLower());
             }
             catch (Exception ex)
             {
-                PrintAndEnum.Print(ConsoleColor.Green, ex.Message);
+                Extension.Print(ConsoleColor.Green, ex.Message);
             }
 
         }

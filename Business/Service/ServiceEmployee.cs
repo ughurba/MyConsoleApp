@@ -3,6 +3,7 @@ using DataAccess.Repositoriyes;
 using Entities.Models;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using Utilities.Helper;
 
 namespace Business.Service
@@ -15,7 +16,7 @@ namespace Business.Service
         public Employee Create(Employee employee)
         {
 
-            if (employee.Experience >= 2 && employee.Age >=18 && employee.Age < 30)
+            if (employee.Experience >= 2 && employee.Age >= 18 && employee.Age < 30)
             {
 
                 Count++;
@@ -27,7 +28,7 @@ namespace Business.Service
             }
             else
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Iw tecrubesi 2 ilden cox ve yawida 18-30 arasi olmalidir");
+                Extension.Print(ConsoleColor.Red, "Iw tecrubesi 2 ilden cox ve yawida 18-30 arasi olmalidir");
                 return null;
             }
 
@@ -37,17 +38,17 @@ namespace Business.Service
         {
 
             Employee EmpDelete = _employeeRepository.GetOne(e => e.Id == id);
-            
+
             if (EmpDelete == null)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele id-li employee tapilmadi");
+                Extension.Print(ConsoleColor.Red, "Bele id-li employee tapilmadi");
                 return null;
             }
             else
             {
                 _employeeRepository.Delete(EmpDelete);
                 Console.WriteLine();
-                PrintAndEnum.Print(ConsoleColor.Red, $"Id:{EmpDelete.Id}\nName:{EmpDelete.Name}\n" +
+                Extension.Print(ConsoleColor.Red, $"Id:{EmpDelete.Id}\nName:{EmpDelete.Name}\n" +
                                                  $"Surname:{EmpDelete.Surname}\n" +
                                                  $"Age:{EmpDelete.Age}\n" +
                                                  $"Experience:{EmpDelete.Experience}-il\n" +
@@ -74,7 +75,7 @@ namespace Business.Service
             List<Employee> employeeList = _employeeRepository.GetAll(e => e.RestaurantName == restaurantName);
             if (employeeList.Count == 0)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele bir restoran movcud deyil!!!!!!!!");
+                Extension.Print(ConsoleColor.Red, "Bele bir restoran movcud deyil!!!!!!!!");
                 return null;
             }
             else
@@ -88,12 +89,14 @@ namespace Business.Service
             Employee empId = _employeeRepository.GetOne(e => e.Id == id);
             if (empId == null)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele bir id-li employee yoxdur!!!!!");
+                Extension.Print(ConsoleColor.Red, "Bele bir id-li employee yoxdur!!!!!");
                 return null;
             }
             else
             {
-                PrintAndEnum.Print(ConsoleColor.Green, $"Id:{empId.Id}\nName:{empId.Name}\n" +
+                StringBuilder stringBuilder = new StringBuilder();
+               
+                Extension.Print(ConsoleColor.Green, $"Id:{empId.Id}\nName:{empId.Name}\n" +
                                               $"Surname:{empId.Surname}\n" +
                                               $"Age:{empId.Age}\n" +
                                               $"Experience:{empId.Experience}-il\n" +
@@ -110,13 +113,13 @@ namespace Business.Service
             Employee empAdress = _employeeRepository.GetOne(e => e.Id == id);
             if (empAdress == null)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele bir id-li employee yoxdur!!!!!");
+                Extension.Print(ConsoleColor.Red, "Bele bir id-li employee yoxdur!!!!!");
                 return null;
             }
             else
             {
                 empAdress.RestaurantName = adress;
-                PrintAndEnum.Print(ConsoleColor.Green, "Ugurla update olundu"); 
+                Extension.Print(ConsoleColor.Green, "Ugurla update olundu");
                 return empAdress;
             }
 
@@ -125,15 +128,15 @@ namespace Business.Service
         public Employee UpdatePosition(string position, int id)
         {
             Employee empPosition = _employeeRepository.GetOne(e => e.Id == id);
-            if (empPosition ==  null)
+            if (empPosition == null)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele bir id-li employee yoxdur!!!!!");
+                Extension.Print(ConsoleColor.Red, "Bele bir id-li employee yoxdur!!!!!");
                 return null;
             }
             else
             {
                 empPosition.Position = position;
-                PrintAndEnum.Print(ConsoleColor.Green, "Ugurla update olundu");
+                Extension.Print(ConsoleColor.Green, "Ugurla update olundu");
                 return empPosition;
             }
 
@@ -147,13 +150,13 @@ namespace Business.Service
             Employee empSalary = _employeeRepository.GetOne(e => e.Id == id);
             if (empSalary == null)
             {
-                PrintAndEnum.Print(ConsoleColor.Red, "Bele bir id-li employee yoxdur!!!!!");
+                Extension.Print(ConsoleColor.Red, "Bele bir id-li employee yoxdur!!!!!");
                 return null;
             }
             else
             {
                 empSalary.Salary = salary;
-                PrintAndEnum.Print(ConsoleColor.Green, "Ugurla update olundu");
+                Extension.Print(ConsoleColor.Green, "Ugurla update olundu");
                 return empSalary;
             }
 
@@ -162,17 +165,17 @@ namespace Business.Service
 
 
         public List<Employee> GetAllEmployeePosition(string restName, string position)
-        { 
+        {
             List<Employee> empList = _employeeRepository.GetAll(e => e.Position == position && e.RestaurantName == restName);
             return empList;
-           
+
         }
-        public  bool DeleteByName(string name)
+        public bool DeleteByName(string name)
         {
-          
-            _employeeRepository.DeleteAll(e=>e.RestaurantName == name);
+
+            _employeeRepository.DeleteAll(e => e.RestaurantName == name);
             return true;
-           
+
         }
     }
 }
