@@ -54,7 +54,7 @@ namespace MyConsoleApp.Controllers
             Extension.Print(ConsoleColor.Green, "-------Menu Employee------");
             Console.WriteLine();
             Extension.Print(ConsoleColor.Blue, "1-Create Employee\n2-Delete Employee\n" +
-                                  "3-Get All\n4-Get All Employee By Restaurant Name\n5-Get Employee\n6-Update Place Of Work\n7-Update Position\n" +
+                                  "3-Get All\n4-Get All Employee By Restaurant Name\n5-Get Employee\n6-Update Work\n7-Update Position\n" +
                                   "8-Update Salary\n0-Main menu");
             int chocie3 = int.Parse(Console.ReadLine());
             switch (chocie3)
@@ -74,7 +74,7 @@ namespace MyConsoleApp.Controllers
                 case (int)Extension.MenuEmployee.GetEmployee:
                     employeeController.GetEmployee();
                     break;
-                case (int)Extension.MenuEmployee.UpdatePlaceOfWork:
+                case (int)Extension.MenuEmployee.UpdateWork:
                     employeeController.UpdatePlaceOfWork();
                     break;
                 case (int)Extension.MenuEmployee.UpdatePosition:

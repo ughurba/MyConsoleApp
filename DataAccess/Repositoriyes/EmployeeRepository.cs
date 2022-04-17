@@ -58,19 +58,19 @@ namespace DataAccess.Repositoriyes
                 DataContext.employees.Find(filter);
         }
 
-        public bool Update(Employee entity)
-        {
-            if(entity == null)
-            {
-                return false;
-            }
-            else
-            {
-                Employee UpEmploye = GetOne(emp => emp.Id == entity.Id);
-                UpEmploye = entity;
-                return true;
-            }
+        //public bool Update(Employee entity)
+        //{
+        //    if(entity == null)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        Employee UpEmploye = GetOne(emp => emp.Id == entity.Id);
+        //        UpEmploye = entity;
+        //        return true;
+        //    }
            
-        }
+        //}
     }
 }

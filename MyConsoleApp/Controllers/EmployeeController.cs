@@ -1,6 +1,7 @@
 ﻿using Business.Service;
 using Entities.Models;
 using System;
+using System.Text;
 using Utilities.Helper;
 
 namespace MyConsoleApp.Controllers
@@ -66,6 +67,7 @@ namespace MyConsoleApp.Controllers
 
                     if (serviceEmployee.Create(employee) != null)
                     {
+                      
                         Extension.Print(ConsoleColor.Green, $"Id:{employee.Id}\nName:{employee.Name}\n" +
                                                  $"Surname:{employee.Surname}\n" +
                                                  $"Age:{employee.Age}\n" +
@@ -174,7 +176,7 @@ namespace MyConsoleApp.Controllers
 
 
         }
-        public void UpdatePlaceOfWork()
+        public void UpdateWork()
         {
             try
             {
@@ -183,7 +185,7 @@ namespace MyConsoleApp.Controllers
                 Extension.Print(ConsoleColor.Yellow, "Xaish edirik yeni Ish yerinin Name yazin");
                 string newAdress = Console.ReadLine();
 
-                serviceEmployee.UpdatePlaceOfWork(id, newAdress.ToLower());
+                serviceEmployee.UpdateWork(id, newAdress.ToLower());
             }
             catch (Exception ex)
             {

@@ -54,18 +54,18 @@ namespace DataAccess.Repositoriyes
                 DataContext.clients.Find(filter);
         }
 
-        public bool Update(Client entity)
-        {
-            if (entity == null)
-            {
-                return false;
-            }
-            else
-            {
-                Client UpClient = GetOne(cl => cl.Id == entity.Id);
-                UpClient = entity;
-                return true;
-            }
-        }
+        //public bool Update(Client entity)
+        //{
+        //    if (entity == null)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        Client UpClient = GetOne(cl => cl.Id == entity.Id);
+        //        UpClient = entity;
+        //        return true;
+        //    }
+        //}
     }
 }

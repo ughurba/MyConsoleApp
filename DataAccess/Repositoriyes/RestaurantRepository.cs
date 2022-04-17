@@ -65,19 +65,19 @@ namespace DataAccess.Repositoriyes
                 DataContext.restaurants.Find(filter);
         }
 
-        public bool Update(Restaurant entity)
-        {
-            if (entity == null)
-            {
-                return false;
-            }
-            else
-            {
-                Restaurant UpEmploye = GetOne(emp => emp.Id == entity.Id);
-                UpEmploye = entity;
-                return true;
-            }
+        //public bool Update(Restaurant entity)
+        //{
+        //    if (entity == null)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        Restaurant UpEmploye = GetOne(emp => emp.Id == entity.Id);
+        //        UpEmploye = entity;
+        //        return true;
+        //    }
 
-        }
+        //}
     }
 }

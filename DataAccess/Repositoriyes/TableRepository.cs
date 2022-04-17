@@ -54,18 +54,18 @@ namespace DataAccess.Repositoriyes
                 DataContext.tables.Find(filter);
         }
 
-        public bool Update(Table entity)
-        {
-            if (entity == null)
-            {
-                return false;
-            }
-            else
-            {
-                Table UpTable = GetOne(cl => cl.TableNo == entity.TableNo);
-                UpTable = entity;
-                return true;
-            }
-        }
+        //public bool Update(Table entity)
+        //{
+        //    if (entity == null)
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        Table UpTable = GetOne(cl => cl.TableNo == entity.TableNo);
+        //        UpTable = entity;
+        //        return true;
+        //    }
+        //}
     }
 }

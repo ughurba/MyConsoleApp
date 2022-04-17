@@ -55,7 +55,7 @@ namespace Utilities.Helper
             GetAll,
             GetAllEmployeeByRestaurantName,
             GetEmployee,
-            UpdatePlaceOfWork,
+            UpdateWork,
             UpdatePosition,
             UpdateSalary,
             MainMenu =0

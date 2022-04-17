@@ -107,7 +107,7 @@ namespace Business.Service
             }
         }
 
-        public Employee UpdatePlaceOfWork(int id, string adress)
+        public Employee UpdateWork(int id, string adress)
         {
 
             Employee empAdress = _employeeRepository.GetOne(e => e.Id == id);
