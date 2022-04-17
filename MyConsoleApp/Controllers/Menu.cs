@@ -19,31 +19,32 @@ namespace MyConsoleApp.Controllers
             int chocie = int.Parse(Console.ReadLine());
             switch (chocie)
             {
-                case 1:
+                case (int)Extension.MenuRestaurant.CreateRestaurant:
                     restaurantController.Creat();
                     break;
-                case 2:
+                case (int)Extension.MenuRestaurant.UpdateRestauranByName:
                     restaurantController.UpdateByName();
                     break;
-                case 3:
+                case (int)Extension.MenuRestaurant.UpdateAdress:
                     restaurantController.UpdateAdress();
                     break;
-                case 4:
+                case (int)Extension.MenuRestaurant.Delete:
                     restaurantController.Delete();
                     break;
-                case 5:
+                case (int)Extension.MenuRestaurant.GetAll:
                     restaurantController.GetAll();
                     break;
-                case 6:
+                case (int)Extension.MenuRestaurant.GetRestaurantById:
                     restaurantController.GetRestaurantById();
                     break;
-                case 7:
+                case (int)Extension.MenuRestaurant.GetRestaurantByName:
                     restaurantController.GetRestaurantByName();
                     break;
-                case 8:
+                case (int)Extension.MenuRestaurant.GetAllEmpPositionByRestName:
                     restaurantController.GetAllEmpPositionByRestName();
                     break;
-                case 0:
+                case (int)Extension.MenuRestaurant.MainMenu:
+                    Program.Menu();
                     break;
             }
         }
@@ -58,31 +59,32 @@ namespace MyConsoleApp.Controllers
             int chocie3 = int.Parse(Console.ReadLine());
             switch (chocie3)
             {
-                case 1:
+                case (int)Extension.MenuEmployee.CreateEmployee:
                     employeeController.Creat();
                     break;
-                case 2:
+                case (int)Extension.MenuEmployee.DeleteEmployee:
                     employeeController.Delete();
                     break;
-                case 3:
+                case (int)Extension.MenuEmployee.GetAll:
                     employeeController.GetAll();
                     break;
-                case 4:
+                case (int)Extension.MenuEmployee.GetAllEmployeeByRestaurantName:
                     employeeController.GetAllEmployeeByRestName();
                     break;
-                case 5:
+                case (int)Extension.MenuEmployee.GetEmployee:
                     employeeController.GetEmployee();
                     break;
-                case 6:
+                case (int)Extension.MenuEmployee.UpdatePlaceOfWork:
                     employeeController.UpdatePlaceOfWork();
                     break;
-                case 7:
+                case (int)Extension.MenuEmployee.UpdatePosition:
                     employeeController.UpdatePosition();
                     break;
-                case 8:
+                case (int)Extension.MenuEmployee.UpdateSalary:
                     employeeController.UpdateSalary();
                     break;
-                case 0:
+                case (int)Extension.MenuEmployee.MainMenu:
+                    Program.Menu();
                     break;
 
             }
@@ -98,28 +100,29 @@ namespace MyConsoleApp.Controllers
             switch (chocie2)
             {
 
-                case 1:
+                case (int)Extension.MenuTable.CreateTabel:
                     tableController.Creat();
                     break;
-                case 2:
+                case (int)Extension.MenuTable.DeleteTable:
                     tableController.Delete();
                     break;
-                case 3:
+                case (int)Extension.MenuTable.GetAll:
                     tableController.GetAll();
                     break;
-                case 4:
+                case (int)Extension.MenuTable.GetAllTableByRestaurantName:
                     tableController.GetAllTableByRestName();
                     break;
-                case 5:
+                case (int)Extension.MenuTable.GetTable:
                     tableController.GetTable();
                     break;
-                case 6:
+                case (int)Extension.MenuTable.UpdateMoneyTable:
                     tableController.UpdateMoneyTable();
                     break;
-                case 7:
+                case (int)Extension.MenuTable.UpdateTableNo:
                     tableController.UpdateTableNo();
                     break;
-                case 0:
+                case (int)Extension.MenuTable.MainMenu:
+                    Program.Menu();
                     break;
 
             }
@@ -136,25 +139,26 @@ namespace MyConsoleApp.Controllers
             int chocie4 = int.Parse(Console.ReadLine());
             switch (chocie4)
             {
-                case 1:
+                case (int)Extension.MenuClient.CreateClient:
                     clientController.Creat();
                     break;
-                case 2:
+                case (int)Extension.MenuClient.DeleteByName:
                     clientController.DeleteByName();
                     break;
 
-                case 3:
+                case (int)Extension.MenuClient.UpdateMoney:
                     clientController.UpdateMoney();
                     break;
 
-                case 4:
+                case (int)Extension.MenuClient.Reservition:
                     clientController.Reservition();
                     break;
-                case 5:
+                case (int)Extension.MenuClient.GetAll:
                     clientController.GetAll();
                     break;
-                case 0:
-                    goto EnterName;
+                case (int)Extension.MenuClient.MainMenu:
+                    Program.Menu();
+                    break;
             }
         }
     }

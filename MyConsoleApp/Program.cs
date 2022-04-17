@@ -10,12 +10,17 @@ namespace MyConsoleApp
 
         static void Main(string[] args)
         {
-            Menu menu = new Menu(); 
+          
             Extension.Print(ConsoleColor.Green, "WELCOME TO OUR RESTAURANT");
             CreateRestaurant();
             CreateTable();
             CreateEmployee();
             CreateClient();
+            Menu();
+        }
+        public static void Menu()
+        {
+            Menu menu = new Menu();
         EnterName:
             try
             {
@@ -25,16 +30,16 @@ namespace MyConsoleApp
                     int num = int.Parse(Console.ReadLine());
                     switch (num)
                     {
-                        case 1:
+                        case (int)Extension.MenuEnums.MenuRestaurant:
                             menu.MenuRestaurant();
                             break;
-                        case 2:
+                        case (int)Extension.MenuEnums.MenuTable:
                             menu.MenuTable();
                             break;
-                        case 3:
+                        case (int)Extension.MenuEnums.MenuEmployee:
                             menu.MenuEmployee();
                             break;
-                        case 4:
+                        case (int)Extension.MenuEnums.MenuClient:
                             menu.MenuClient();
                             break;
                     }

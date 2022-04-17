@@ -63,7 +63,7 @@ namespace MyConsoleApp.Controllers
             {
 
                 Console.WriteLine(ex.Message);
-                Program.CreateTable();
+                Program.CreateClient();
 
             }
 
