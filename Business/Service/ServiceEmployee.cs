@@ -106,7 +106,7 @@ namespace Business.Service
             }
         }
 
-        public Employee UpdateWork(int id, string adress)
+        public Employee UpdateWork(int id, string nameRest)
         {
 
             Employee empAdress = _employeeRepository.GetOne(e => e.Id == id);
@@ -117,7 +117,7 @@ namespace Business.Service
             }
             else
             {
-                empAdress.RestaurantName = adress;
+                empAdress.RestaurantName = nameRest;
                 empAdress.dateTime = DateTime.Now;
                 Extension.Print(ConsoleColor.Green, $"Id:{empAdress.Id}\nName:{empAdress.Name}\n" +
                                              $"Surname:{empAdress.Surname}\n" +

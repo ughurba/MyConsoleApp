@@ -44,8 +44,17 @@ namespace Business.Service
         public Client UpdateMoney(int id, int money)
         {
             Client clientUp = _clientRepository.GetOne(c => c.Id == id);
-            clientUp.MoneyClient += money;
-            return clientUp;
+            if (clientUp == null)
+            {
+                Console.WriteLine("bele idli muwteri tapilmadi");
+                return null;
+            }
+            else
+            {
+                clientUp.MoneyClient += money;
+                return clientUp;
+            }
+          
         }
 
         public Client Reservition(int id, string tableNo)
