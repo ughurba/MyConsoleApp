@@ -8,6 +8,13 @@ namespace Utilities.Helper
 {
     public class Extension
     {
+        public enum Position
+        {
+            ofisiant =1,
+            ashbaz,
+            barmen,
+            muhafizeci
+        }
         public enum MenuClient
         {
             CreateClient=1,

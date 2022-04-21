@@ -3,6 +3,7 @@ using Entities.Models;
 using System;
 using Utilities.Extension;
 using Utilities.Helper;
+using static Utilities.Helper.Extension;
 
 namespace MyConsoleApp.Controllers
 {
@@ -34,19 +35,19 @@ namespace MyConsoleApp.Controllers
                 Extension.Print(ConsoleColor.Yellow, "Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
                 string pos = null;
                 int position = MyExtension.CheckInt();
-                if (position == 1)
+                if (position == (int)Position.ofisiant)
                 {
                     pos = "ofisiant";
                 }
-                else if (position == 2)
+                else if (position == (int)Position.ashbaz)
                 {
                     pos = "ashbaz";
                 }
-                else if (position == 3)
+                else if (position == (int)Position.barmen)
                 {
                     pos = "barmen";
                 }
-                else if (position == 4)
+                else if (position == (int)Position.muhafizeci)
                 {
                     pos = "muhafizeci";
                 }
@@ -148,19 +149,19 @@ namespace MyConsoleApp.Controllers
             Extension.Print(ConsoleColor.Yellow, "Position qeyd edin\n1-oficant\n2-Ashbaz\n3-Barmen\n4-muhafizeci");
             string pos = null;
             int position = MyExtension.CheckInt();
-            if (position == 1)
+            if (position == (int)Position.ofisiant)
             {
                 pos = "ofisiant";
             }
-            else if (position == 2)
+            else if (position == (int)Position.ashbaz)
             {
                 pos = "ashbaz";
             }
-            else if (position == 3)
+            else if (position == (int)Position.barmen)
             {
                 pos = "barmen";
             }
-            else if (position == 4)
+            else if (position == (int)Position.muhafizeci)
             {
                 pos = "muhafizeci";
             }
